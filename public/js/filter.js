@@ -67,46 +67,19 @@
       /**
        * Deal with the filter condition 
        */
-      for(let i = 0; i<12 && productsJSON[i].typeProduct == "Áo khoác"; i++){
-        let s = categorySingleProductHtml;
+      for(let i = 0; i<productsJSON.length; i++){
+        if(productsJSON[i].typeProduct == "Áo khoác"){
+          let s = categorySingleProductHtml;
 
-        s = insertProperty(s, "title", productsJSON[i].title);
-        s = insertProperty(s, "price", productsJSON[i].price);
-        s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "title", productsJSON[i].title);
+          s = insertProperty(s, "price", productsJSON[i].price);
+          s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
 
-        finalHtml += s;
-        finalHtml += '\n';
+          finalHtml += s;
+          finalHtml += '\n';
 
-        console.log(s);
-      }
-      insertHtml("#category-single-product-section", finalHtml);
-    }, false);
-  }
-
-
-
-  dc.showProductsAo = function(){
-    ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewAo, true);
-  }
-
-  buildProductsViewAo = (productsJSON) => {
-    ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
-      let finalHtml = "";
-
-      /**
-       * Deal with the filter condition 
-       */
-      for(let i = 0; i<12 && productsJSON[i].typeProduct == "Áo"; i++){
-        let s = categorySingleProductHtml;
-
-        s = insertProperty(s, "title", productsJSON[i].title);
-        s = insertProperty(s, "price", productsJSON[i].price);
-        s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
-
-        finalHtml += s;
-        finalHtml += '\n';
-
-        console.log(s);
+          console.log(s);
+        }
       }
       insertHtml("#category-single-product-section", finalHtml);
     }, false);
