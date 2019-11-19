@@ -17,7 +17,6 @@ router.get('/', function(req, res,next) {
      res.render('index',{products:tenProduct})
     }
   });
- 
 });
 
 module.exports = router;
