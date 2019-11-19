@@ -142,39 +142,56 @@
 							<div class="widgets_inner">
 								<h4>Thương hiệu</h4>
 								<ul class="list">
-									<li>
-										<a href="javascript:;" onclick="dc.showProductsGucci();">Gucci</a>
+									<li onclick="changeActive(this);" class="checkactive">
+										<a href="javascript:;" onclick="dc.showProductsGucci(); ">Gucci</a>
 									</li>
-									<li>
+									<li onclick="changeActive(this);" class="checkactive">
 										<a href="javascript:;" onclick="dc.showProductsHM();">H&M</a>
 									</li>
-									<li class="active">
+									<li class="active checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsPullBear();">Pull&Bear</a>
 									</li>
-									<li>
+									<li onclick="changeActive(this);" class="checkactive">
 										<a href="javascript:;" onclick="dc.showProductsMango();">Mango</a>
 									</li>
-									<li>
+									<li onclick="changeActive(this);" class="checkactive">
 										<a href="javascript:;" onclick="dc.showProductsRoutine();">Routine</a>
 									</li>
 								</ul>
 							</div>
+
+							<script>
+
+								function changeActive(elem) {
+									//console.log("Có vô");
+									// get all 'a' elements
+									var a = document.getElementsByClassName('checkactive');
+									// loop through all 'a' elements
+									for (i = 0; i < a.length; i++) {
+										// Remove the class 'active' if it exists
+										a[i].classList.remove("active");
+									}
+									// add 'active' classs to the element that was clicked
+									elem.classList.add('active');
+								}
+							</script>
+
 							<div class="widgets_inner">
 								<h4>Màu sắc</h4>
 								<ul class="list">
-									<li>
+									<li class="checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsBlack();">Đen</a>
 									</li>
-									<li>
+									<li class="checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsWhite();">Trắng</a>
 									</li>
-									<li class="active">
+									<li class="checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsBlue();">Xanh da trời</a>
 									</li>
-									<li>
+									<li class="checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsGold();">Vàng gold</a>
 									</li>
-									<li>
+									<li class="checkactive" onclick="changeActive(this);">
 										<a href="javascript:;" onclick="dc.showProductsPink();">Hồng mạnh mẽ</a>
 									</li>
 								</ul>
