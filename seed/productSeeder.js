@@ -144,8 +144,8 @@ let quanthethao = [
         title: 'Quần short thể thao nữ Now Day QN99 Sportslink',
         price: 98000,
         typeProduct: "Quần thể thao",
-        brand: "Trắng",
-        color: "Đen",
+        brand: "Routine",
+        color: "Trắng",
         imagePath: "/img/product/quan/quan-the-thao-4.jpg"
     })
     
@@ -195,7 +195,7 @@ let quanjogger = [
         price: 59000,
         typeProduct: "Quần jogger",
         brand: "Gucci",
-        color: "Trắng",
+        color: "Đen",
         imagePath: "/img/product/quan/quan-jogger-4.jpg"
     })
 ];  
@@ -271,7 +271,7 @@ let dam = [
         price: 149000,
         typeProduct: "Đầm",
         brand: "Gucci",
-        color: "Đen",
+        color: "Vàng gold",
         imagePath: "/img/product/quan/dam-1.png"
     }),
     
@@ -280,7 +280,7 @@ let dam = [
         title: 'Đầm hồng form ngắn thắt eo',
         price: 139000,
         typeProduct: "Đầm",
-        brand: "Gucci",
+        brand: "Pull&Bear",
         color: "Hồng mạnh mẽ",
         imagePath: "/img/product/quan/dam-2.jpg"
     }),
@@ -325,7 +325,7 @@ let aoLen = [
         price: 150000,
         typeProduct: 'Áo len',
         brand: "Gucci",
-        color: "Trắng",
+        color: "Hồng mạnh mẽ",
         imagePath: '/img/product/ao/ao_len/aolen1.jpeg'
     }),
 
@@ -334,7 +334,7 @@ let aoLen = [
         title: 'Áo len trắng',
         price: 159000,
         typeProduct: 'Áo len',
-        brand: "Gucci",
+        brand: "Pull&Bear",
         color: "Trắng",
         imagePath: '/img/product/ao/ao_len/aolen2.jpeg'
     }),
@@ -409,7 +409,7 @@ let aoThun = [
         price: 319000,
         typeProduct: 'Áo thun',
         brand: "Gucci",
-        color: "Trắng",
+        color: "Vàng gold",
         imagePath: '/img/product/ao/ao_thun/aothun4.jpeg'
     }),
 ];  
@@ -442,7 +442,7 @@ let aoLot = [
         title: 'Áo lót đỏ',
         price: 159000,
         typeProduct: 'Áo lót',
-        brand: "Gucci",
+        brand: "Routine",
         color: "Hồng mạnh mẽ",
         imagePath: '/img/product/ao/ao_lot/aolot2.jpeg'
     }),
@@ -462,8 +462,8 @@ let aoLot = [
         title: 'Áo lót thêu hoa',
         price: 319000,
         typeProduct: 'Áo lót',
-        brand: "Gucci",
-        color: "Vàng gold",
+        brand: "Routine",
+        color: "Xanh da trời",
         imagePath: '/img/product/ao/ao_lot/aolot4.jpeg'
     }),
 ];  
@@ -507,7 +507,7 @@ let aoSoMi = [
         price: 219000,
         typeProduct: 'Áo sơ mi',
         brand: "H&M",
-        color: "Trắng",
+        color: "Xanh da trời",
         imagePath: '/img/product/ao/ao_so_mi/aosomi3.jpeg'
     }),
    
@@ -542,7 +542,7 @@ let giaySneaker = [
         title: 'Sneaker Passo kem',
         price: 150000,
         typeProduct: 'Sneaker',
-        brand: "Gucci",
+        brand: "Pull&Bear",
         color: "Vàng gold",
         imagePath: '/img/product/giay/sneaker/sneaker1.jpeg'
     }),
@@ -553,7 +553,7 @@ let giaySneaker = [
         price: 159000,
         typeProduct: 'Sneaker',
         brand: "Gucci",
-        color: "Đen",
+        color: "Trắng",
         imagePath: '/img/product/giay/sneaker/sneaker2.jpeg'
     }),
 
@@ -562,7 +562,7 @@ let giaySneaker = [
         title: 'Chunky sneaker',
         price: 219000,
         typeProduct: 'Sneaker',
-        brand: "Gucci",
+        brand: "H&M",
         color: "Vàng gold",
         imagePath: '/img/product/giay/sneaker/sneaker3.jpeg'
     }),
@@ -647,7 +647,7 @@ let giayCaoGot = [
         id: 1,
         title: 'Giày cao gót đen',
         price: 150000,
-        typeProduct: 'Giày Cao got',
+        typeProduct: 'Giày cao gót',
         brand: "H&M",
         color: "Đen",
         imagePath: '/img/product/giay/cao_got/caogot1.jpeg'

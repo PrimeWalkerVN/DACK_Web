@@ -425,7 +425,7 @@
     }
 
 
-    // cao got
+    //  giay cao got
     dc.showProductsGiayCaoGot = function(){//
       ajaxUtils.sendGetRequest(productsDbUrl, buildProductsGiayCaoGot, true);//
     }
@@ -454,6 +454,329 @@
         insertHtml("#category-single-product-section", finalHtml);
       }, false);
     }
+
+
+
+    //================Do Gucci=========================
+
+    dc.showProductsGucci = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewGucci, true);//
+    }
+  
+    buildProductsViewGucci = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].brand == "Gucci"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+     //================Do H&M=========================
+
+     dc.showProductsHM = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewHM, true);//
+    }
+  
+    buildProductsViewHM = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].brand == "H&M"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+     //================Do Pull&Bear=========================
+
+     dc.showProductsPullBear = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewPullBear, true);//
+    }
+  
+    buildProductsViewPullBear = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].brand == "Pull&Bear"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+     //================Mango=========================
+
+     dc.showProductsMango = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewMango, true);//
+    }
+  
+    buildProductsViewMango = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].brand == "Mango"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+     //================Do Routine=========================
+
+     dc.showProductsRoutine = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewRoutine, true);//
+    }
+  
+    buildProductsViewRoutine = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].brand == "Routine"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+
+    //=========================Color Area=======================================
+
+    //==============Mau den===========================
+    dc.showProductsBlack = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewBlack, true);//
+    }
+  
+    buildProductsViewBlack = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].color == "Đen"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+    
+
+    //==============Mau Trang===========================
+    dc.showProductsWhite = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewWhite, true);//
+    }
+  
+    buildProductsViewWhite = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].color == "Trắng"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+     //==============Mau xanh da troi===========================
+     dc.showProductsBlue = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewBlue, true);//
+    }
+  
+    buildProductsViewBlue = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].color == "Xanh da trời"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+    //==============Mau vang gold===========================
+    dc.showProductsGold = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewGold, true);//
+    }
+  
+    buildProductsViewGold = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].color == "Vàng gold"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+    //==============Mau hong manh me===========================
+    dc.showProductsPink = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewPink, true);//
+    }
+  
+    buildProductsViewPink = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].color == "Hồng mạnh mẽ"){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   global.dc = dc;
 })(window);
