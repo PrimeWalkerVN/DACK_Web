@@ -9,6 +9,9 @@
 	<title>Fashiop</title>
 	<!-- Bootstrap CSS -->
 
+	<script defer src='/js/ajaxUtils.js'></script>
+	<script defer src='/js/filter.js'></script>
+
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/vendors/linericon/style.css">
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -22,7 +25,7 @@
 	<link rel="stylesheet" href="/css/responsive.css">
 </head>
 
-<body>
+<body onload="dc.showProducts()">
 
 	<!--================Header Menu Area =================-->
 	<header class="header_area">
