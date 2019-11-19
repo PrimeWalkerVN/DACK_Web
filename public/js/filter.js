@@ -43,6 +43,7 @@
         s = insertProperty(s, "title", productsJSON[i].title);
         s = insertProperty(s, "price", productsJSON[i].price);
         s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+        s = insertProperty(s, "_id", productsJSON[i]._id);
 
         finalHtml += s;
         finalHtml += '\n';
@@ -74,6 +75,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -105,6 +107,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -135,6 +138,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -165,6 +169,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -197,6 +202,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -228,6 +234,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -259,6 +266,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -290,6 +298,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -320,6 +329,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -350,6 +360,7 @@
           s = insertProperty(s, "title", productsJSON[i].title);
           s = insertProperty(s, "price", productsJSON[i].price);
           s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+          s = insertProperty(s, "_id", productsJSON[i]._id);
 
           finalHtml += s;
           finalHtml += '\n';
@@ -382,6 +393,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -413,6 +425,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -444,6 +457,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -476,6 +490,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -507,6 +522,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -538,6 +554,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -569,6 +586,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -600,6 +618,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -633,6 +652,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -663,6 +683,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -693,6 +714,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -723,6 +745,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -753,6 +776,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
@@ -788,6 +812,7 @@
             s = insertProperty(s, "title", productsJSON[i].title);
             s = insertProperty(s, "price", productsJSON[i].price);
             s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+            s = insertProperty(s, "_id", productsJSON[i]._id);
   
             finalHtml += s;
             finalHtml += '\n';
