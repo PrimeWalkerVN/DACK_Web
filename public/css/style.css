@@ -79,6 +79,7 @@ width: 200px;
   height: 250px;
 }
 
+
 /*----------------------------------------------------*/
 body {
   line-height: 24px;
@@ -3301,7 +3302,7 @@ h6 {
       font-weight: normal;
       color: #555555; }
       .s_product_text .list li a span {
-        width: 90px;
+        width: 150px;
         display: inline-block; }
         .s_product_text .list li a span:hover {
           color: #555; }
