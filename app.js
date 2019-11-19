@@ -18,7 +18,7 @@ let profileRouter = require('./routes/profile');
 
 let mongoose = require('mongoose');
 
-let baseUrl = "mongodb://localhost:27017/shopping"
+let baseUrl = "mongodb+srv://letrungtiennbk9:Trungtienle9@cluster0-hjpbg.mongodb.net/shopping?retryWrites=true&w=majority"
 let mongoDB = baseUrl;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true });
