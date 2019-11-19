@@ -767,6 +767,40 @@
 
 
 
+    // Price search
+    dc.showProductsPrice = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewPrice, true);//
+    }
+  
+    buildProductsViewPrice = (productsJSON) => {//
+      ajaxUtils.sendGetRequest(categorySingleProductHtmlUrl, (categorySingleProductHtml) => {
+        let finalHtml = "";
+  
+        /**
+         * Deal with the filter condition 
+         */
+        
+        let price = document.getElementById('amount').value;
+        //console.log(Number(price) + 20000);
+        for(let i = 0; i<productsJSON.length; i++){
+          if(productsJSON[i].price <= Number(price) + 20000 &&  productsJSON[i].price >= Number(price) - 20000){//
+            let s = categorySingleProductHtml;
+            s = insertProperty(s, "title", productsJSON[i].title);
+            s = insertProperty(s, "price", productsJSON[i].price);
+            s = insertProperty(s, "imagePath", productsJSON[i].imagePath);
+  
+            finalHtml += s;
+            finalHtml += '\n';
+  
+            console.log(s);
+          }
+        }
+        insertHtml("#category-single-product-section", finalHtml);
+      }, false);
+    }
+
+
+
 
 
 

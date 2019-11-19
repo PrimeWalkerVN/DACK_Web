@@ -185,7 +185,7 @@
 									<div id="slider-range"></div>
 									<div class="row m0">
 										<label for="amount">Nhập giá : </label>
-										<input style="background: white" type="text" id="amount">
+										<input style="background: white" type="text" id="amount" onkeyup="myFunction(this.value)">
 									</div>
 								</div>
 							</div>
@@ -193,6 +193,17 @@
 					</div>
 				</div>
 			</div>
+
+
+			<script>
+
+				function myFunction(val) {
+					dc.showProductsPrice();
+				}
+
+			</script>
+			
+
 
 			<div class="row">
 				<nav class="cat_page mx-auto" aria-label="Page navigation example">
