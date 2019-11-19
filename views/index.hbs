@@ -83,13 +83,13 @@
 						<p>Hệ thống với hệ sinh thái đầy đủ và thân thiện.</p>
 					</div>
 				</div>
-				{{#each products}}
+			
 				<div class="row">
-					{{#each this}}
+					{{#each products}}
 					<div class="col col1">
 						<div class="f_p_item">
 							<div class="f_p_img">
-								<img class="img-fluid" src={{this.imagePath}} alt="">
+								<img class="img-flui sizeImage" src={{this.imagePath}} alt="">
 								<div class="p_icon">
 									<a href="#">
 										<i class="lnr lnr-heart"></i>
@@ -106,7 +106,7 @@
 						</div>
 					</div>
 					{{/each}}
-				{{/each}}
+				</div>
 
 				<div class="row">
 					<nav class="cat_page mx-auto" aria-label="Page navigation example">

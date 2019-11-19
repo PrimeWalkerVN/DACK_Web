@@ -74,6 +74,11 @@ justify-content: flex-start;
 width: 200px;
 }
 
+.sizeImage{
+  width: 200px;
+  height: 250px;
+}
+
 /*----------------------------------------------------*/
 body {
   line-height: 24px;
