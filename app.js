@@ -3,7 +3,6 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
 let indexRouter = require('./routes/index');
 let categoryRouter = require('./routes/category');
 let singleProductRouter = require('./routes/single-product');
@@ -15,13 +14,10 @@ let trackingRouter = require('./routes/tracking');
 let registrationRouter = require('./routes/registration');
 let forgotRouter = require('./routes/forgot');
 let profileRouter = require('./routes/profile');
-
 let mongoose = require('mongoose');
+require('dotenv').config();
 
-let baseUrl = "mongodb+srv://letrungtiennbk9:Trungtienle9@cluster0-hjpbg.mongodb.net/shopping?retryWrites=true&w=majority"
-let mongoDB = baseUrl;
-
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on('error',console.error.bind(console, 'MongoDB connection error.....'));
 
@@ -37,7 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
 app.use('/category', categoryRouter);

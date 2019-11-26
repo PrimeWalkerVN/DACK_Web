@@ -1,25 +1,10 @@
-var express = require('express');
-var router = express.Router();
-const mobgodb = require('mongodb');
-let mongoose = require('mongoose');
-//let DB = "mongodb://localhost:27017/shopping"
-let Product = require('../models/product')
-
+let express = require('express');
+let router = express.Router();
+let taskCategory = require('../controllers/task')
 /* GET home page. */
 router.get('/', function(req, res,next) {
   res.render('single-product');
 });
 
-router.get('/:id', function(req, res) {
-  Product.findOne({"_id": mobgodb.ObjectID(req.params.id)}, function(err,doc){   
-      if(err){
-        console.log(err);
-      }else{
-       // res.send(docs);
-        res.render('single-product', {product: doc});
-      }
-  });
-    
-});
-
+router.get('/:id', taskCategory.loadSingleProduct);
 module.exports = router;

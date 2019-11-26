@@ -6,7 +6,7 @@
   let dc = {};
 
   let productsDbUrl = "https://still-plateau-02404.herokuapp.com/products";
-  let categorySingleProductHtmlUrl = '/snippets/category-single-product.html';
+  let categorySingleProductHtmlUrl = '/snippets/category-single-product.hbs';
 
   insertHtml = (querySelector, htmlToInsert) => {
     let tmp = document.querySelector(querySelector);
@@ -48,7 +48,7 @@
         finalHtml += s;
         finalHtml += '\n';
 
-        console.log(s);
+
       }
 
       insertHtml("#category-single-product-section", finalHtml);
@@ -80,7 +80,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -112,7 +112,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -143,7 +143,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -174,7 +174,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -207,7 +207,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -239,7 +239,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -271,7 +271,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -303,7 +303,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -334,7 +334,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -365,7 +365,7 @@
           finalHtml += s;
           finalHtml += '\n';
 
-          console.log(s);
+          
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
@@ -398,7 +398,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -430,7 +430,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -462,7 +462,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -495,7 +495,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -527,7 +527,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -559,7 +559,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -591,7 +591,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -623,7 +623,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -657,7 +657,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -688,7 +688,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -719,7 +719,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -750,7 +750,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -781,7 +781,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
@@ -817,7 +817,7 @@
             finalHtml += s;
             finalHtml += '\n';
   
-            console.log(s);
+            
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
