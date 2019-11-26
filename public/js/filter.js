@@ -438,9 +438,9 @@
     }
 
 
-    //  giay cao got
-    dc.showProductsGiayCaoGot = function(){//
-      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsGiayCaoGot, true);//
+     // giay cao got
+     dc.showProductsGiayCaoGot = function(){//
+      ajaxUtils.sendGetRequest(productsDbUrl, buildProductsViewGiayCaoGot, true);//
     }
   
     buildProductsViewGiayCaoGot = (productsJSON) => {//

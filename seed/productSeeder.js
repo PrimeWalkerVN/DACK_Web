@@ -594,7 +594,7 @@ let giayCaoCo = [
         id: 1,
         title: 'Giày cao cổ đen nam',
         price: 150000,
-        typeProduct: 'Giày Cao cổ',
+        typeProduct: 'Giày cao cổ',
         brand: "H&M",
         color: "Đen",
         imagePath: '/img/product/giay/cao_co/caoco1.jpeg'
@@ -682,7 +682,7 @@ let giayCaoGot = [
         color: "Hồng mạnh mẽ",
         imagePath: '/img/product/giay/cao_got/caogot4.jpeg'
     }),
-];  
+];      
 
 
 for(let i = 0; i < giayCaoGot.length; i++){
