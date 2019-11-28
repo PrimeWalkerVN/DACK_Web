@@ -32,7 +32,13 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Đăng nhập vào tài khoản</h3>
-						
+						{{#if hasErrors}}
+            				<div class="alert alert-danger login_form">
+                				{{#each messages }}
+                    				<p>{{this}}</p>
+               					{{/each}}
+            				</div>
+       					{{/if}}
 						<form class="row login_form" action="login" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email">

@@ -1,5 +1,4 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mogoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const User = require('./models/Users');
@@ -13,7 +12,6 @@ module.exports = function(passport){
                     if(!user){
                         return done(null, false, { message: 'Email chưa được đăng ký'});
                     }
-                    
                     // match password
                     bcrypt.compare(password, user.password, (err, isMatch) => {
                         if(isMatch){

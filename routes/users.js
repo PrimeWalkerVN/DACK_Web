@@ -9,10 +9,7 @@ const User = require('../models/Users');
 const { forwardAuthenticated } = require('../config/auth');
 
 
-router.get('/profile', isLoggedIn, (req, res) => {
-    
-    res.render('profile')
-    });
+router.get('/profile', isLoggedIn, (req, res) => {res.render('profile')});
     
 
 //Logout
@@ -25,7 +22,6 @@ router.use('/', notLoggedIn, function (req, res, next) {
     next();
 });
 
-router.get('/registration', forwardAuthenticated, (req, res) => res.render('registration'));
 
 //register post handle
 router.post('/registration', (req, res) => {
@@ -45,31 +41,28 @@ router.post('/registration', (req, res) => {
         errors.push({msg: 'Xác nhận mặt khẩu không đúng'});
     }
 
-    if(password.lengh < 6){
+    if(password.length < 6){
         errors.push({msg: 'Mật khẩu phải dài hơn 6 ký tự'});
     }
-
+    
     if(errors.length > 0){
+        req.flash('error_msg',errors);
+        let messages =  req.flash('error_msg');
         res.render('registration',{
-            errors,
-            name,
-            email,
-            password,
-            password2
+            messages: messages,
+            hasErrors: messages.length > 0
         });
     }else{
-        
         User.findOne({email: email})
             .then(user => {
                 if(user){
                     // user exist
                     errors.push({msg: 'Email đã tồn tại'})
+                    req.flash('error_msg',errors);
+                    let messages =  req.flash('error_msg');
                     res.render('registration',{
-                        errors,
-                        name,
-                        email,
-                        password,
-                        password2
+                        messages: messages,
+                        hasErrors: messages.length >0
                     });
                 }else{
                     const newUser = new User({
@@ -97,9 +90,19 @@ router.post('/registration', (req, res) => {
     }
 
 });
+router.get('/registration', forwardAuthenticated, function(req, res) 
+{ 
+    let messages =  req.flash('error_msg');
+    res.render('registration',{ messages: messages, hasErrors: messages.length >0});
+});
 
-
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', function(req, res) 
+{ 
+    console.log('hello');
+    let messages =  req.flash('error');
+    console.log(messages);
+    res.render('login',{ messages: messages, hasErrors: messages.length >0});
+});
 
 // login post handle
 router.post('/login', (req, res, next) => {

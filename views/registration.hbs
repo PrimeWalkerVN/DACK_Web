@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img">
-						<img class="img-fluid" src="img/login.jpg" alt="">
+						<img class="img-fluid" src="../img/login.jpg" alt="">
 						<div class="hover">
 							<h4>Bạn mới vào trang web của chúng tôi?</h4>
 							<p>Sẩn phẩm của chúng tôi rất tuyệt vời, bạn hãy thử trải nghiệm, nó sẽ không làm bạn thất vọng đâu!</p>
@@ -32,7 +32,14 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner reg_form">
 						<h3>Tạo tài khoản</h3>
-						{{{messagesAccount}}}
+						{{#if hasErrors}}
+            				<div class="alert alert-danger login_form">
+                				{{#each messages }}
+                    				<p>{{this.msg}}</p>
+               					{{/each}}
+            				</div>
+       					{{/if}}
+
 						<form class="row login_form" action="registration" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Họ tên">
