@@ -57,6 +57,13 @@
 								Liên hệ chúng tôi
 							</a>
 						</li>
+						{{#if login}}
+						<li>
+							<a href="/users/logout">
+								Đăng xuất	
+							</a>
+						</li>
+						{{/if}}
 					</ul>
 				</div>
 			</div>
@@ -87,16 +94,14 @@
 										<ul class="dropdown-menu">
 											<li class="nav-item">
 												<a class="nav-link" href="/category">Danh sách sản phẩm</a>
-												<li class="nav-item">
-													<a class="nav-link" href="/single-product">Sản phẩm chi tiết</a>
-													<li class="nav-item">
-														<a class="nav-link" href="checkout">Thanh toán</a>
-														<li class="nav-item">
-															<a class="nav-link" href="cart">Giỏ hàng</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link" href="confirmation">Xác nhận đặt hàng</a>
-														</li>
+											<li class="nav-item">
+												<a class="nav-link" href="checkout">Thanh toán</a>
+											<li class="nav-item">
+												<a class="nav-link" href="cart">Giỏ hàng</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="confirmation">Xác nhận đặt hàng</a>
+											</li>
 										</ul>
 									</li>
 									
