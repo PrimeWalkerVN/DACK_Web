@@ -1,5 +1,5 @@
-<div class="col-lg-3 col-md-3 col-sm-6">
-  <div class="f_p_item">
+
+<div class="col-lg-3 col-md-3 col-sm-6 f_p_item" style="display: none;">
     <div class="f_p_img sizeImage">
       <a href="/single-product/{{_id}}">
       <img class="img-fluid" src="{{imagePath}}" alt="">
@@ -14,8 +14,8 @@
       </div>
     </div>
     <a href="/single-product/{{_id}}">
-      <h4>{{title}}</h4>
+      <h4 class='f_p_item_title'>{{title}}</h4>
     </a>
-    <h5>{{price}} VND</h5>
-  </div>
+    <h5 class='f_p_item_price'>{{price}}</h5>
+    <span>VND</span>
 </div>
