@@ -21,23 +21,24 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img">
-						<img class="img-fluid" src="img/login.jpg" alt="">
+						<img class="img-fluid" src="../img/login.jpg" alt="">
 						<div class="hover">
 							<h4>Bạn mới vào trang web của chúng tôi</h4>
 							<p>Sẩn phẩm của chúng tôi rất tuyệt vời, bạn hãy thử trải nghiệm, nó sẽ không làm bạn thất vọng đâu!</p>
-							<a class="main_btn" href="/registration">Tạo tài khoản mới</a>
+							<a class="main_btn" href="/users/registration">Tạo tài khoản mới</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Đăng nhập vào tài khoản</h3>
-						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+						
+						<form class="row login_form" action="login" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Tên đăng nhập">
+								<input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Mật khẩu">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
