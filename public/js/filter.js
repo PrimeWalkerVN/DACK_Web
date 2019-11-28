@@ -19,9 +19,47 @@
     return snippet;
   }
 
+  ascendingNameSort = (a, b) => {
+    let tmp1 = a.getElementsByClassName('f_p_item_title')[0].innerText.toLowerCase();
+    let tmp2 = b.getElementsByClassName('f_p_item_title')[0].innerText.toLowerCase();
+    return tmp1.localeCompare(tmp2);
+  }
+
+  dc.sortNameAscending = () => {
+    $('.f_p_item').sort(ascendingNameSort).appendTo('#category-single-product-section');
+  }
+
+  dc.showLimitedProducts = () => {
+    $('.f_p_item').each(function(i){
+      $(this)[0].style.display = 'none';
+    })
+    setTimeout(() => {
+      let nShownProducts = $('.nice-select.show .option.selected')[0].innerText;
+      console.log(nShownProducts);
+      nShownProducts = parseInt(nShownProducts);
+      for(let i=0; i<nShownProducts; i++){
+        $('.f_p_item')[i].style.display = 'block';
+      }
+    },10);
+  }
+
+  $('.nice-select.show .option').attr("onclick", "dc.showLimitedProducts();");
+
+  ascendingPriceSort = (a, b) => {
+    let tmp1 = a.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    let tmp2 = b.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    return parseInt(tmp1) > parseInt(tmp2) ? 1 : -1;
+  }
+
+  dc.sortPriceAscending = () => {
+    $('.f_p_item').sort(ascendingPriceSort).appendTo('#category-single-product-section');
+  }
+
+  
   dc.showProducts = function(){
     ajaxUtils.sendGetRequest(productsDbUrl, buildProductsView, true);
   }
+  
 
 
   /**
@@ -37,7 +75,7 @@
       /**
        * Deal with the filter condition 
        */
-      for(let i = 0; i<12; i++){
+      for(let i = 0; i<productsJSON.length; i++){
         let s = categorySingleProductHtml;
 
         s = insertProperty(s, "title", productsJSON[i].title);
@@ -50,8 +88,8 @@
 
 
       }
-
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -84,6 +122,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -116,6 +155,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
   
@@ -147,6 +187,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -178,6 +219,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -211,6 +253,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -243,6 +286,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -275,6 +319,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -307,6 +352,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -338,6 +384,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
 
@@ -369,6 +416,7 @@
         }
       }
       insertHtml("#category-single-product-section", finalHtml);
+      dc.showLimitedProducts();
     }, false);
   }
   
@@ -402,6 +450,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -434,6 +483,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -466,6 +516,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -499,6 +550,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -531,6 +583,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -563,6 +616,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -595,6 +649,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -627,6 +682,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -661,6 +717,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
     
@@ -692,6 +749,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -723,6 +781,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -754,6 +813,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
@@ -785,6 +845,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
     
@@ -821,6 +882,7 @@
           }
         }
         insertHtml("#category-single-product-section", finalHtml);
+        dc.showLimitedProducts();
       }, false);
     }
 
