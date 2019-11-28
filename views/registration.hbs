@@ -32,27 +32,25 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner reg_form">
 						<h3>Tạo tài khoản</h3>
-						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+						{{{messagesAccount}}}
+						<form class="row login_form" action="registration" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Họ tên">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ emails">
+								<input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="password" name="password" placeholder="Tên mật khẩu">
+								<input type="text" class="form-control" id="password" name="password" placeholder="Mật khẩu">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="pass" name="pass" placeholder="Xác nhận mật khẩu">
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Duy trì đăng nhập</label>
-								</div>
+								<input type="password" class="form-control" id="password2" name="password2" placeholder="Xác nhận mật khẩu">
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="btn submit_btn">Đăng ký</button>
+							</div>
+							<div class="col-md-12">
+								<p>Đã có tài khoản? <a href="login">Đăng nhập</a></p>
 							</div>
 						</form>
 					</div>
