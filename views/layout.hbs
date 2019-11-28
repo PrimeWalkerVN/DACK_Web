@@ -36,11 +36,17 @@
 				</div>
 				<div class="float-right">
 					<ul class="right_side">
+						{{#if login}}
+						<li>
+							<p>	Xin chào, {{user.name}}</p>
+						</li>
+						{{ else}}
 						<li>
 							<a href="/users/login">
-								Đăng nhập/Đăng ký 	
+								Đăng nhập/Đăng ký	
 							</a>
 						</li>
+						{{/if}}
 						<li>
 							<a href="/profile">
 								Tài khoản của tôi

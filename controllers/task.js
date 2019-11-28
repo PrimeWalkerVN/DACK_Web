@@ -22,7 +22,7 @@ exports.loadHomePage= function (req,res,next){
     for(let i =0 ; i < 10; ++i ){
       tenProduct.push(docs[i]);
     }
-     res.render('index',{products:tenProduct})
+     res.render('index',{products:tenProduct, user: req.user})
     }
   });
 }

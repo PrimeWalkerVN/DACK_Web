@@ -2,12 +2,30 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const validator = require("email-validator");
 
 const User = require('../models/Users');
 
-router.get('/login', (req, res) => res.render('login'));
+const { forwardAuthenticated } = require('../config/auth');
 
-router.get('/registration', (req, res) => res.render('registration'));
+
+router.get('/profile', isLoggedIn, (req, res) => {
+    
+    res.render('profile')
+    });
+    
+
+//Logout
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/users/login');
+  });
+
+router.use('/', notLoggedIn, function (req, res, next) {
+    next();
+});
+
+router.get('/registration', forwardAuthenticated, (req, res) => res.render('registration'));
 
 //register post handle
 router.post('/registration', (req, res) => {
@@ -17,6 +35,10 @@ router.post('/registration', (req, res) => {
     
     if(!name || !email || !password || !password2){
         errors.push({msg: 'Vui lòng nhập đầy đủ thông tin!'});
+    }
+
+    if(!validator.validate(email)){
+        errors.push({msg: "Email không hợp lệ!"});
     }
 
     if(password !== password2){
@@ -76,6 +98,9 @@ router.post('/registration', (req, res) => {
 
 });
 
+
+router.get('/login', (req, res) => res.render('login'));
+
 // login post handle
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
@@ -92,3 +117,17 @@ router.get('/logout', (req, res) => {
 })
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}
+
+function notLoggedIn(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}

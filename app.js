@@ -55,6 +55,13 @@ app.use((req, res, next) => {
   next();
 });
 
+
+app.use(function(req, res, next) {
+  res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -89,3 +96,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
