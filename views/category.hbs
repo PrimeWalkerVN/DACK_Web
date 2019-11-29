@@ -32,13 +32,13 @@
 							</select>
 							<select id="products-num" class="show">
 								<option onclick="dc.showLimitedProducts();" value="10">10</option>
-								<option onclick="dc.showLimitedProducts();" value="20">2</option>
-								<option onclick="dc.showLimitedProducts();" value="30">3</option>
+								<option onclick="dc.showLimitedProducts();" value="20">20</option>
+								<option onclick="dc.showLimitedProducts();" value="30">30</option>
 							</select>
 						</div>
 					</div>
 
-					<button onclick="dc.showLimitedProducts();">aaaaaa</button>
+					<button onclick="dc.loadMore();">aaaaaa</button>
 					<div id="category-single-product-section" class="latest_product_inner row">
 						<!--ajax goes here-->
 					</div>
@@ -198,7 +198,7 @@
 
 			<div class="row">
 				<nav class="cat_page mx-auto" aria-label="Page navigation example">
-					<ul class="pagination">
+					<ul id="page-pagination" class="pagination">
 						<li class="page-item">
 							<div class="page-link">
 								<i class="fa fa-chevron-left" aria-hidden="true"></i>
