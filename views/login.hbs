@@ -40,8 +40,11 @@
             				</div>
 						{{else}}
 							{{#if hasSuccess}}
-							<div class="alert alert-success login_form">		
-                    				<p>{{successMessages}}</p>
+							<div class="alert alert-success login_form">
+								{{#each successMessages }}
+                    				<p>{{this.msg}}</p>
+               					{{/each}}		
+                    				
             				</div>
 							{{/if}}
        					{{/if}}

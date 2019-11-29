@@ -1,7 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
-const User = require('./models/Users');
+const User = require('../models/Users');
 
 module.exports = function(passport){
     passport.use(
@@ -10,7 +10,7 @@ module.exports = function(passport){
             User.findOne({email: email})
                 .then(user => {
                     if(!user){
-                        return done(null, false, { message: 'Email chưa được đăng ký'});
+                        return done(null, false, { message: 'Email chưa được đăng ký!'});
                     }
                     // match password
                     bcrypt.compare(password, user.password, (err, isMatch) => {
@@ -20,6 +20,11 @@ module.exports = function(passport){
                             return done(null, false, {message: 'Mật khẩu không chính xác!'});
                         }
                     });
+
+                    //Check if email has been verified
+                    if (!user.active) {
+                        return done(null, false, { message: 'Xin lỗi, bạn chưa xác nhận email!' });
+                    }
                 })
                 .catch(err => console.log(err));
         })

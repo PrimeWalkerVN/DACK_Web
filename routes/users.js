@@ -19,6 +19,10 @@ router.use('/', userTask.notLoggedIn, function (req, res, next) {next();});
 router.post('/registration',userTask.postSignUp); 
 router.get('/registration', forwardAuthenticated, userTask.getSignUp);
 
+//verify
+router.get('/verify', forwardAuthenticated, userTask.getVefify);
+router.post('/verify', userTask.postVefify);
+
 // login 
 router.get('/login', userTask.getSignIn);
 router.post('/login', userTask.postSignIn);

@@ -2,6 +2,10 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const validator = require("email-validator");
 const User = require('../models/Users');
+const randomstring = require('randomstring');
+const mailer = require('../misc/mailer');
+
+let urlVerify = 'http://localhost:3000/users/verify';
 
 //method get,post register user
 exports.getSignUp=function(req, res) 
@@ -22,7 +26,7 @@ exports.postSignUp= (req, res) => {
     }
 
     if(password !== password2){
-        errors.push({msg: 'Xác nhận mặt khẩu không đúng'});
+        errors.push({msg: 'Xác nhận mật khẩu không đúng'});
     }
 
     if(password.length < 6){
@@ -62,13 +66,42 @@ exports.postSignUp= (req, res) => {
                             if(err) throw err;
                             //set new password
                             newUser.password = hash;
+
+                            // create secret token
+                            const secretToken = randomstring.generate();
+                            newUser.secretToken = secretToken;
+
+                            //inactive account
+                            newUser.active = false;
+                            let successMsg=[];
+
                             //save into database
                             newUser.save()
                                 .then(user => {
-                                    req.flash('success_messages', 'Bạn đã đăng ký thành công, có thể đăng nhập ngay bây giờ');
-                                    res.redirect('/users/login');
-                                })
-                                .catch(err => console.log(err));
+                                    successMsg.push({msg: 'Bạn đã đăng ký thành công!'});
+                                    // mail
+                            const html = `Xin chào,
+                            <br/>
+                            Cảm ơn bạn đã đăng ký tài khoản tại cửa hàng của chúng tôi!
+                            <br/><br/>
+                            Vui lòng xác nhận tài khoản bằng cách nhập đoạn mã dưới đây:
+                            <br/>
+                            Mã: <b>${secretToken}</b>
+                            <br/>
+                            Tại địa chỉ:
+                            <a href="${urlVerify}">${urlVerify}</a>
+                            <br/><br/>
+                            Chúc bạn có một ngày vui vẻ.` 
+                                
+                            // send email
+                            mailer.sendEmail('admin@fashiop.herokuapp.com', newUser.email, 'Fashiop xác nhận tài khoản', html);
+                            successMsg.push({msg: 'Vui kiểm tra mã xác nhận trong email!'});
+                            req.flash('success_messages', successMsg);
+                            res.redirect('/users/login');
+                            })
+                            .catch(err => console.log(err));
+
+                            
                         }))
                 }
             });
@@ -76,6 +109,31 @@ exports.postSignUp= (req, res) => {
 
 };
 
+//method get,post for verify
+exports.getVefify = (req, res) => {
+    res.render('verify');
+};
+exports.postVefify = async (req, res, next) => {
+    try{
+        const { secretToken } = req.body;
+
+        const user = await User.findOne({ 'secretToken': secretToken });
+        if(!user){
+            //req.flash('error', 'Mã xác nhận không chính xác');
+            res.redirect('/users/verify');
+            return;
+        }
+        user.active = true;
+        user.secretToken = '';
+        await user.save();  
+        let successMsg =[];
+        successMsg.push({msg: 'Xác nhận thành công!'});
+        req.flash('success_messages', successMsg);
+        res.redirect('/users/login');
+    }catch(error){
+        next(error);
+    }
+}
 
 //method get,post for login user 
 exports.getSignIn = function(req, res) 
