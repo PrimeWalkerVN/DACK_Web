@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const userTask = require('../controllers/usertask')
+const userTask = require('../controllers/userTask')
 const { forwardAuthenticated } = require('../config/auth');
-
-
 
 //load profile user
 router.get('/profile', userTask.isLoggedIn, (req, res) => {res.render('profile')});

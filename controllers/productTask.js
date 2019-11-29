@@ -30,3 +30,4 @@ exports.loadHomePage= function (req,res,next){
 exports.loadCategoryPage = function (req,res,next){
      res.render('category');
 }
+
