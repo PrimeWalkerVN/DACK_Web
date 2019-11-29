@@ -67,7 +67,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
-app.use('/users', require('./routes/users'));
+app.use('/users', userRoutes);
 app.use('/index', indexRouter);
 app.use('/category', categoryRouter);
 app.use('/single-product',singleProductRouter);

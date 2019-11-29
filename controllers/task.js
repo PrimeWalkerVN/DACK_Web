@@ -28,17 +28,5 @@ exports.loadHomePage= function (req,res,next){
 }
 
 exports.loadCategoryPage = function (req,res,next){
-  Product.find(function(err,docs){
-    if(err)
-    {
-      console.log ("Render product error!");
-    }else
-    {
-    let twelveProduct = [];
-    for(let i =0 ; i < 12; ++i ){
-      twelveProduct.push(docs[i]);
-    }
-     res.render('category',{products:twelveProduct})
-    }
-  });
+     res.render('category');
 }
