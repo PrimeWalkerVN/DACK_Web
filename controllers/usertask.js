@@ -14,11 +14,15 @@ exports.getSignUp=function(req, res)
     res.render('registration',{ messages: messages, hasErrors: messages.length >0});
 };
 exports.postSignUp= (req, res) => {
-    const { name, email, password, password2} = req.body;
+    const {username, name, email, password, password2} = req.body;
     let errors = [];
 
-    if(!name || !email || !password || !password2){
+    if(!username || !name || !email || !password || !password2){
         errors.push({msg: 'Vui lòng nhập đầy đủ thông tin!'});
+    }
+
+    if(!username.match(/^[a-zA-Z0-9]{3,30}$/)){
+        errors.push({msg: 'Tên tài khoản chỉ chứa các ký tự a-z, A-Z hoặc 0-9, độ dài 3-30 ký tự!'});
     }
 
     if(!validator.validate(email)){
@@ -41,11 +45,11 @@ exports.postSignUp= (req, res) => {
             hasErrors: messages.length > 0
         });
     }else{
-        User.findOne({email: email})
+        User.findOne({username: username})
             .then(user => {
                 if(user){
                     // user exist
-                    errors.push({msg: 'Email đã tồn tại'})
+                    errors.push({msg: 'tài khoản đã tồn tại'})
                     req.flash('error_msg',errors);
                     let messages =  req.flash('error_msg');
                     res.render('registration',{
@@ -55,6 +59,7 @@ exports.postSignUp= (req, res) => {
                 }else{
                     //create new user
                     const newUser = new User({
+                        username,
                         name,
                         email,
                         password
@@ -116,10 +121,8 @@ exports.getVefify = (req, res) => {
 exports.postVefify = async (req, res, next) => {
     try{
         const { secretToken } = req.body;
-
         const user = await User.findOne({ 'secretToken': secretToken });
         if(!user){
-            //req.flash('error', 'Mã xác nhận không chính xác');
             res.redirect('/users/verify');
             return;
         }
