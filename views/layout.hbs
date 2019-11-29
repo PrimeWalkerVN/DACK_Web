@@ -9,9 +9,11 @@
 	<title>Fashiop</title>
 	<!-- Bootstrap CSS -->
 
+	<script defer src='/js/utils.js'></script>
 	<script defer src='/js/ajaxUtils.js'></script>
 	<script defer src='/js/filter.js'></script>
 	<script defer src='/js/page-pagination.js'></script>
+	
 
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/vendors/linericon/style.css">
@@ -122,7 +124,7 @@
 
 										<input class="search-txt" type="text" name ="" placeholder="Bạn cần kiếm gì?">
 
-										<a href="#" class="icons">
+										<a onclick="utils.search();" href="#" class="icons search">
 											<i class="fa fa-search" aria-hidden="true"></i>
 										</a>
 									</li>

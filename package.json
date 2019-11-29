@@ -9,6 +9,7 @@
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
+    "curl-request": "^1.1.1",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",

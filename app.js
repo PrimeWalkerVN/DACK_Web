@@ -7,6 +7,7 @@ let logger = require('morgan');
 let userRoutes = require('./routes/users');
 let indexRouter = require('./routes/index');
 let categoryRouter = require('./routes/category');
+let searchResultRouter = require('./routes/search-result');
 let singleProductRouter = require('./routes/single-product');
 let cartRouter = require('./routes/cart');
 let checkoutRouter = require('./routes/checkout');
@@ -16,7 +17,7 @@ let forgotRouter = require('./routes/forgot');
 let mongoose = require('mongoose');
 require('dotenv').config();
 
-mongoose.connect(process.env.DB_URL_LOCAL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on('error',console.error.bind(console, 'MongoDB connection error.....'));
 
@@ -70,6 +71,7 @@ app.use('/', indexRouter);
 app.use('/users', require('./routes/users'));
 app.use('/index', indexRouter);
 app.use('/category', categoryRouter);
+app.use('/search-result', searchResultRouter);
 app.use('/single-product',singleProductRouter);
 app.use('/checkout',checkoutRouter);
 app.use('/cart',cartRouter);
