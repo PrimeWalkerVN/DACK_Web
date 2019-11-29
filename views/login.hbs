@@ -34,10 +34,16 @@
 						<h3>Đăng nhập vào tài khoản</h3>
 						{{#if hasErrors}}
             				<div class="alert alert-danger login_form">
-                				{{#each messages }}
+                				{{#each errorMessages }}
                     				<p>{{this}}</p>
                					{{/each}}
             				</div>
+						{{else}}
+							{{#if hasSuccess}}
+							<div class="alert alert-success login_form">		
+                    				<p>{{successMessages}}</p>
+            				</div>
+							{{/if}}
        					{{/if}}
 						<form class="row login_form" action="login" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
