@@ -2,7 +2,8 @@
   let utils = {};
 
   utils.search = () => {
-    $('a.search').attr("href", "search-result/áo khoác");
+    let keyWord = $('.nav-item.searchbox .search-txt')[0].value;
+    $('a.search').attr("href", "search-result/" + keyWord);
   }
 
   global.utils = utils;
