@@ -4,9 +4,9 @@ const validator = require("email-validator");
 const User = require('../models/Users');
 const randomstring = require('randomstring');
 const mailer = require('../misc/mailer');
-
 let urlVerify = 'http://localhost:3000/users/verify';
 
+//handle for user
 //method get,post register user
 exports.getSignUp=function(req, res) 
 { 
@@ -105,8 +105,7 @@ exports.postSignUp= (req, res) => {
                             res.redirect('/users/login');
                             })
                             .catch(err => console.log(err));
-
-                            
+          
                         }))
                 }
             });
