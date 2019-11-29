@@ -29,6 +29,40 @@
     $('.f_p_item').sort(ascendingNameSort).appendTo('#category-single-product-section');
   }
 
+  descendingNameSort = (a, b) => {
+    let tmp1 = a.getElementsByClassName('f_p_item_title')[0].innerText.toLowerCase();
+    let tmp2 = b.getElementsByClassName('f_p_item_title')[0].innerText.toLowerCase();
+    return tmp2.localeCompare(tmp1);
+  }
+
+  dc.sortNameDescending = () => {
+    $('.f_p_item').sort(descendingNameSort).appendTo('#category-single-product-section');
+  }
+
+  ascendingPriceSort = (a, b) => {
+    let tmp1 = a.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    let tmp2 = b.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    return parseInt(tmp1) > parseInt(tmp2) ? 1 : -1;
+  }
+
+  dc.sortPriceAscending = () => {
+    $('.f_p_item').sort(ascendingPriceSort).appendTo('#category-single-product-section');
+  }
+
+  descendingPriceSort = (a, b) => {
+    let tmp1 = a.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    let tmp2 = b.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
+    return parseInt(tmp1) < parseInt(tmp2) ? 1 : -1;
+  }
+
+  dc.sortPriceDescending = () => {
+    $('.f_p_item').sort(descendingPriceSort).appendTo('#category-single-product-section');
+  }
+
+  dc.sortDefault = () => {
+    $('.f_p_item').appendTo('#category-single-product-section');
+  }
+
   dc.showLimitedProducts = () => {
     $('.f_p_item').each(function(i){
       $(this)[0].style.display = 'none';
@@ -44,23 +78,32 @@
   }
 
   $('.nice-select.show .option').attr("onclick", "dc.showLimitedProducts();");
+  $('.nice-select.sorting .option').attr("onclick", "dc.showLimitedProducts();");
+  $('.nice-select.sorting .option').each(function() {
+    // console.log($(this)[0].data-value);
+    
+    if($(this).attr('data-value') == 1){
+      $(this).attr("onclick", "dc.sortDefault();");
+    }
+    else if($(this).attr('data-value') == 2){
+      $(this).attr("onclick", "dc.sortPriceAscending();");
+    }
+    else if($(this).attr('data-value') == 3){
+      $(this).attr("onclick", "dc.sortPriceDescending();");
+    }
+    else if($(this).attr('data-value') == 4){
+      $(this).attr("onclick", "dc.sortNameAscending();");
+    }
+    else {
+      $(this).attr("onclick", "dc.sortNameDescending();");
+    }
+  })
 
-  ascendingPriceSort = (a, b) => {
-    let tmp1 = a.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
-    let tmp2 = b.getElementsByClassName('f_p_item_price')[0].innerText.toLowerCase();
-    return parseInt(tmp1) > parseInt(tmp2) ? 1 : -1;
-  }
 
-  dc.sortPriceAscending = () => {
-    $('.f_p_item').sort(ascendingPriceSort).appendTo('#category-single-product-section');
-  }
-
-  
   dc.showProducts = function(){
     ajaxUtils.sendGetRequest(productsDbUrl, buildProductsView, true);
   }
   
-
 
   /**
    * What we will do here is replacing all the place holders with the values of the received json response
