@@ -28,6 +28,30 @@ exports.loadHomePage= function (req,res,next){
 }
 
 exports.loadCategoryPage = function (req,res,next){
-     res.render('category');
+  Product.find(function(err,docs){
+    if(err)
+    {
+      console.log ("Render product error!");
+    }else
+    {
+    let twelveProduct = [];
+    for(let i =0 ; i < 12; ++i ){
+      twelveProduct.push(docs[i]);
+    }
+     res.render('category',{products:twelveProduct})
+    }
+  });
 }
 
+exports.loadSearchResult = function(req, res, next){
+  let a = req.params.title;
+  Product.find({ title: { $regex: a, $options: "i" } }, (err, ret) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(ret.length);
+      res.render('search-result', {aa:ret});
+    }
+  });
+}
