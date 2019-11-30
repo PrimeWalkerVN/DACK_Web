@@ -32,12 +32,22 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Quên mật khẩu</h3>
-						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+						{{#if hasErrors}}
+            				<div class="alert alert-danger login_form">
+                				{{#each messages }}
+                    				<p>{{this.msg}}</p>
+               					{{/each}}
+            				</div>
+							
+							<br>
+							<br>
+							<br>
+						<form class="row login_form" action="forgot" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Tên đăng nhập">
+								<input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Mật khẩu mới">
+								<input type="text" class="form-control" id="email" name="email" placeholder="Địa chỉ email">
 							</div>
 							
 							<div class="col-md-12 form-group">
@@ -45,6 +55,32 @@
 								
 							</div>
 						</form>
+						{{else}}
+							{{#if hasSuccess}}
+							<div class="alert alert-success login_form">
+								{{#each success }}
+                    				<p>{{this.msg}}</p>
+               					{{/each}}		
+            				</div>
+							<br>
+							<br>
+							<br>
+							{{else}}
+							<form class="row login_form" action="forgot" method="post" id="contactForm" novalidate="novalidate">
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="email" name="email" placeholder="Địa chỉ email">
+							</div>
+							
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="btn submit_btn">Gửi</button>
+								
+							</div>
+						</form>
+							{{/if}}
+       					{{/if}}
 					</div>
 				</div>
 			</div>

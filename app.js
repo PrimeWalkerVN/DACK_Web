@@ -12,7 +12,6 @@ let cartRouter = require('./routes/cart');
 let checkoutRouter = require('./routes/checkout');
 let confirmationRouter = require('./routes/confirmation');
 let trackingRouter = require('./routes/tracking');
-let forgotRouter = require('./routes/forgot');
 let mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -75,7 +74,6 @@ app.use('/checkout',checkoutRouter);
 app.use('/cart',cartRouter);
 app.use('/confirmation',confirmationRouter);
 app.use('/tracking',trackingRouter);
-app.use('/forgot',forgotRouter);
 
 
 // catch 404 and forward to error handler

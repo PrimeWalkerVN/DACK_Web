@@ -49,7 +49,7 @@ exports.postSignUp= (req, res) => {
             .then(user => {
                 if(user){
                     // user exist
-                    errors.push({msg: 'tài khoản đã tồn tại'})
+                    errors.push({msg: 'Tài khoản đã tồn tại'})
                     req.flash('error_msg',errors);
                     let messages =  req.flash('error_msg');
                     res.render('registration',{
@@ -144,7 +144,7 @@ exports.getSignIn = function(req, res)
     let errMessages =  req.flash('error');
     let successMessages =  req.flash('success_messages');
     console.log(successMessages);
-    res.render('login',{ errorMessages: errMessages,successMessages:successMessages, 
+    res.render('login',{ errorMessages: errMessages, successMessages:successMessages, 
         hasErrors: errMessages.length >0, hasSuccess: successMessages.length>0});
 };
 exports.postSignIn = (req, res, next) => {
