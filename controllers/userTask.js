@@ -5,7 +5,7 @@ const User = require('../models/Users');
 const randomstring = require('randomstring');
 var crypto = require("crypto");
 const async = require("async");
-let urlVerify = 'http://localhost:3000/users/verify';
+let urlVerify = 'https://dackfashiop.herokuapp.com/users/verify';
 const log = console.log;
 
 const nodemailer = require('nodemailer');
@@ -192,7 +192,7 @@ exports.postForgot = (req, res) => {
             });
         },
         function(token, user, done) {
-          let urlResetPassword = 'http://localhost:3000/users/reset/';
+          let urlResetPassword = 'https://dackfashiop.herokuapp.com/users/reset/';
           urlResetPassword += user.resetPasswordToken;
             let mailOptions = {
             from: 'fashiop69@gmail.com', 
