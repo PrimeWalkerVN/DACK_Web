@@ -10,7 +10,7 @@ module.exports = function(passport){
             User.findOne({username: username})
                 .then(user => {
                     if(!user){
-                        return done(null, false, { message: 'tài khoản chưa được đăng ký!'});
+                        return done(null, false, { message: 'Tài khoản chưa được đăng ký!'});
                     }
                     // match password
                     bcrypt.compare(password, user.password, (err, isMatch) => {
