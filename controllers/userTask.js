@@ -6,7 +6,7 @@ const randomstring = require('randomstring');
 var crypto = require("crypto");
 const async = require("async");
 let urlVerify = 'http://localhost:3000/users/verify';
-
+const log = console.log;
 
 const nodemailer = require('nodemailer');
 const config = require('../config/mailer');
@@ -14,8 +14,8 @@ const config = require('../config/mailer');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'fashiop69@gmail.com',
-        pass: 'tienthongthanh'
+        user: 'tienthongthanh@gmail.com',
+        pass: 'host123456'
     }
 });
 
@@ -45,7 +45,7 @@ exports.postSignUp= (req, res) => {
         errors.push({msg: 'Xác nhận mật khẩu không đúng'});
     }
 
-    if(password.length < 6){
+    if(password.length < 7){
         errors.push({msg: 'Mật khẩu phải dài hơn 6 ký tự'});
     }
     
@@ -131,14 +131,19 @@ exports.postSignUp= (req, res) => {
 };
 
 //method get,post for verify
-exports.getVefify = (req, res) => {
-    res.render('verify');
+exports.getVefify = function (req, res) {
+    let messages = req.flash('errors_messages');
+    console.log(messages);
+    res.render('verify',{messages: messages, hasErrors: messages.length >0});
 };
 exports.postVefify = async (req, res, next) => {
     try{
         const { secretToken } = req.body;
         const user = await User.findOne({ 'secretToken': secretToken });
         if(!user){
+            let errors;
+            errors = 'Mã xác minh sai, hãy kiểm tra lại, cẩn thận khoảng trắng';
+            req.flash('errors_messages',errors);
             res.redirect('/users/verify');
             return;
         }
@@ -301,12 +306,27 @@ exports.getSignIn = function(req, res)
         hasErrors: errMessages.length >0, hasSuccess: successMessages.length>0});
 };
 exports.postSignIn = (req, res, next) => {
+    const {username, password} = req.body;
+    let errors;
+    if(!username  ||!password){
+        errors= 'Vui lòng nhập đầy đủ thông tin';
+    }
+
+    if(errors){
+        req.flash('error_msg',errors);
+        let errMessages =  req.flash('error_msg');
+        res.render('login',{
+            errorMessages: errMessages,
+            hasErrors: errMessages.length > 0
+        });
+    }else{
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: 'login',
         successFlash: true,
         failureFlash: true
     })(req, res, next);
+}
 };
 
 

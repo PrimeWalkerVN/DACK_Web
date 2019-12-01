@@ -6,7 +6,7 @@ let baseUrl = "mongodb+srv://letrungtiennbk9:Trungtienle9@cluster0-hjpbg.mongodb
 let mongoDB = baseUrl;
 let done = 0;
 
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 
 let aokhoac = [
     new Product ({
