@@ -3,10 +3,21 @@ const passport = require('passport');
 const validator = require("email-validator");
 const User = require('../models/Users');
 const randomstring = require('randomstring');
-const mailer = require('../misc/mailer');
 var crypto = require("crypto");
 const async = require("async");
 let urlVerify = 'http://localhost:3000/users/verify';
+
+
+const nodemailer = require('nodemailer');
+const config = require('../config/mailer');
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'fashiop69@gmail.com',
+        pass: 'tienthongthanh'
+    }
+});
 
 //method get,post register user
 exports.getSignUp=function(req, res) 
@@ -85,25 +96,31 @@ exports.postSignUp= (req, res) => {
                             newUser.save()
                                 .then(user => {
                                     successMsg.push({msg: 'Bạn đã đăng ký thành công!'});
+                                    
                                     // mail
-                            const html = `Xin chào,
-                            <br/>
-                            Cảm ơn bạn đã đăng ký tài khoản tại cửa hàng của chúng tôi!
-                            <br/><br/>
-                            Vui lòng xác nhận tài khoản bằng cách nhập đoạn mã dưới đây:
-                            <br/>
-                            Mã: <b>${secretToken}</b>
-                            <br/>
-                            Tại địa chỉ:
-                            <a href="${urlVerify}">${urlVerify}</a>
-                            <br/><br/>
-                            Chúc bạn có một ngày vui vẻ.` 
-                                
-                            // send email
-                            mailer.sendEmail('admin@fashiop.herokuapp.com', newUser.email, 'Fashiop xác nhận tài khoản', html);
-                            successMsg.push({msg: 'Vui kiểm tra mã xác nhận trong email!'});
-                            req.flash('success_messages', successMsg);
-                            res.redirect('/users/login');
+                                let mailOptions = {
+                                from: 'fashiop69@gmail.com', 
+                                to: newUser.email,
+                                subject: 'Fashiop xác nhận tài khoản',
+                                text: `Xin chào,
+                                Cảm ơn bạn đã đăng ký tài khoản tại cửa hàng của chúng tôi!
+                                Vui lòng xác nhận tài khoản bằng cách nhập đoạn mã dưới đây:
+                                Mã: ${secretToken}
+                                Tại địa chỉ: ${urlVerify}>
+                                Chúc bạn có một ngày vui vẻ.`
+                                };
+
+                                transporter.sendMail(mailOptions, (err, data) => {
+                                    if (err) {
+                                        return log('Lỗi không gửi được email!');
+                                    }
+                                    return log('Gửi mail xác minh thành công!!!');
+                                });
+
+                                // mailer.sendEmail('admin@fashiop.herokuapp.com', newUser.email, 'Fashiop xác nhận tài khoản', html);
+                                successMsg.push({msg: 'Vui kiểm tra mã xác nhận trong email!'});
+                                req.flash('success_messages', successMsg);
+                                res.redirect('/users/login');
                             })
                             .catch(err => console.log(err));                  
                         }))
@@ -172,17 +189,24 @@ exports.postForgot = (req, res) => {
         function(token, user, done) {
           let urlResetPassword = 'http://localhost:3000/users/reset/';
           urlResetPassword += user.resetPasswordToken;
-          const html = `Xin chào ${user.name},
-                        <br/>
-                        Có phải bạn muốn tìm lại mật khẩu của mình?
-                        <br/><br/>
-                        Nhấp vào đường dẫn bên dưới để đổi lại mật khẩu:
-                        <a href="${urlResetPassword}">${urlResetPassword}</a>
-                        <br/><br/>
-                        Chúc bạn có một ngày vui vẻ.` 
-                                
+            let mailOptions = {
+            from: 'fashiop69@gmail.com', 
+            to: user.email,
+            subject: 'Fashiop thay đổi mật khẩu',
+            text: `Xin chào ${user.name},
+            Có phải bạn muốn tìm lại mật khẩu của mình?
+            Nhấp vào đường dẫn bên dưới để đổi lại mật khẩu: ${urlResetPassword}
+            Chúc bạn có một ngày vui vẻ.`
+            };
+
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    return log('Lỗi không gửi được email!');
+                }
+                return log('Gửi mail xác minh thành công!!!');
+            });
             // send email
-            mailer.sendEmail('admin@fashiop.herokuapp.com', user.email, 'Fashiop thay đổi mật khẩu', html);
+           // mailer.sendEmail('admin@fashiop.herokuapp.com', user.email, 'Fashiop thay đổi mật khẩu', html);
             let success = [];
             success.push({msg: 'Vui kiểm tra email để lấy lại mật khẩu!'});
             res.render('forgot', {success:success, hasSuccess: success.length >0});
@@ -239,13 +263,23 @@ exports.postResetPassword = function(req, res) {
         });
       },
       function(user, done) {
-        const html = `Xin chào, ${user.name}
-                    <br/>
-                    Bạn vừa thay đổi mật khẩu của mình!
-                    Tài khoản thay đổi mật khẩu là <b>${user.username}</b>
-                    Hãy nhanh chóng ghé thăm cửa hàng của chúng tôi và mua thật nhiều đồ nhé! ^.^`        
-            // send email
-             mailer.sendEmail('admin@fashiop.herokuapp.com', user.email, 'Fashiop xác nhận thay đổi mật khẩu', html);
+                let mailOptions = {
+                from: 'fashiop69@gmail.com', 
+                to: user.email,
+                subject: 'Fashiop xác nhận thay đổi mật khẩu',
+                text: `Xin chào, ${user.name}
+                Bạn vừa thay đổi mật khẩu của mình!
+                Tài khoản thay đổi mật khẩu là ${user.username}
+                Hãy nhanh chóng ghé thăm cửa hàng của chúng tôi và mua thật nhiều đồ nhé! ^.^`
+                };
+    
+                transporter.sendMail(mailOptions, (err, data) => {
+                    if (err) {
+                        return log('Lỗi không gửi được email!');
+                    }
+                    return log('Gửi mail xác minh thành công!!!');
+                });
+
           let successMsg=[];  
           successMsg.push({msg: 'Mật khẩu đã thay đổi thành công! Hãy đăng nhập và tiếp tục'});
           req.flash('success_messages', successMsg);
