@@ -25,7 +25,7 @@ let aokhoac = [
         price: 198000,
         typeProduct: "Áo khoác",
         brand: "Pull&Bear",
-        color: "Vàng gold",
+        color: "Đen",
         imagePath: "/img/product/ao-khoac/ao-khoac-nam-2.png"
     }),
    
@@ -136,7 +136,7 @@ let quanthethao = [
         price: 69000,
         typeProduct: "Quần thể thao",
         brand: "Gucci",
-        color: "Hồng mạnh mẽ",
+        color: "Đen",
         imagePath: "/img/product/quan/quan-the-thao-3.jpg"
     }),
     new Product ({
@@ -667,7 +667,7 @@ let giayCaoGot = [
         id: 3,
         title: 'Giày cao gót sandal',
         price: 219000,
-        typeProduct: 'Giày cao gót',
+        typeProduct: 'Giày cao gót',    
         brand: "Routine",
         color: "Trắng",
         imagePath: '/img/product/giay/cao_got/caogot3.jpeg'
