@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema
 let schema = new Schema({
-    id: {type: Number, required: true},
+    id: {type: Number, required: false},
     title: {type: String, required: true},
     price: {type: Number, required: true},
     typeProduct: {type: String, required: true},
