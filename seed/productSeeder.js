@@ -10,7 +10,6 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 
 let aokhoac = [
     new Product ({
-        id: 1,
         title: 'Áo khoác nam cách nhiệt GOKING (Màu đen)',
         price: 193000,
         typeProduct: "Áo khoác",
@@ -20,7 +19,6 @@ let aokhoac = [
     }),
    
     new Product ({
-        id: 2,
         title: 'Áo Khoác Kaki Nam Hai Lớp Simple Cao Cấp ShopN6-KK35',
         price: 198000,
         typeProduct: "Áo khoác",
@@ -30,7 +28,6 @@ let aokhoac = [
     }),
    
     new Product ({
-        id: 3,
         title: 'Áo Khoác Free Fire Hoodie Có Mũ Dài Tay',
         price: 199000,
         typeProduct: "Áo khoác",
@@ -40,7 +37,6 @@ let aokhoac = [
     }),
    
     new Product ({
-        id: 4,
         title: "Hoodie PlayerUnknown's Battlegrounds",
         price: 159000,
         typeProduct: "Áo khoác",
@@ -63,7 +59,6 @@ done = 0;
 
 let quantay = [
     new Product ({
-        id: 1,
         title: 'Quần Tây Nam Vải Tuyết Mưa',
         price: 135000,
         typeProduct: "Quần tây",
@@ -72,7 +67,6 @@ let quantay = [
         imagePath: "/img/product/quan/quan-tay-1.jpg"
     }),
     new Product ({
-        id: 2,
         title: 'Quần Tây Âu Nam Titishop QTN64 - Đen',
         price: 95000,
         typeProduct: "Quần tây",
@@ -81,7 +75,6 @@ let quantay = [
         imagePath: "/img/product/quan/quan-tay-2.jpg"
     }),
     new Product ({
-        id: 3,
         title: 'Quần tây nam ống suông công sở',
         price: 165000,
         typeProduct: "Quần tây",
@@ -90,7 +83,6 @@ let quantay = [
         imagePath: "/img/product/quan/quan-tay-3.jpg"
     }),
     new Product ({
-        id: 4,
         title: 'Quần Tây Âu Màu Trơn Cho Nam',
         price: 135000,
         typeProduct: "Quần tây",
@@ -113,7 +105,6 @@ done = 0;
 
 let quanthethao = [
     new Product ({
-        id: 1,
         title: 'Quần thể thao nữ tập gym yoga lưng cao',
         price: 139000,
         typeProduct: "Quần thể thao",
@@ -122,7 +113,6 @@ let quanthethao = [
         imagePath: "/img/product/quan/quan-the-thao-1.jpg"
     }),
     new Product ({
-        id: 2,
         title: 'Quần short thể thao nam Gymlink G505',
         price: 89000,
         typeProduct: "Quần thể thao",
@@ -131,7 +121,6 @@ let quanthethao = [
         imagePath: "/img/product/quan/quan-the-thao-2.jpg"
     }),
     new Product ({
-        id: 3,
         title: 'Quần Short thể thao nữ 2 lớp viền màu',
         price: 69000,
         typeProduct: "Quần thể thao",
@@ -140,7 +129,6 @@ let quanthethao = [
         imagePath: "/img/product/quan/quan-the-thao-3.jpg"
     }),
     new Product ({
-        id: 4,
         title: 'Quần short thể thao nữ Now Day QN99 Sportslink',
         price: 98000,
         typeProduct: "Quần thể thao",
@@ -163,7 +151,6 @@ done = 0;
 
 let quanjogger = [
     new Product ({
-        id: 1,
         title: 'Quần jogger kaki túi hộp JG5',
         price: 117000,
         typeProduct: "Quần jogger",
@@ -172,7 +159,6 @@ let quanjogger = [
         imagePath: "/img/product/quan/quan-jogger-1.jpg"
     }),
     new Product ({
-        id: 2,
         title: 'Quần Jogger Kaki Nam Dáng Thể Thao Chất Lượng Cao',
         price: 82000,
         typeProduct: "Quần jogger",
@@ -181,7 +167,6 @@ let quanjogger = [
         imagePath: "/img/product/quan/quan-jogger-2.jpg"
     }),
     new Product ({
-        id: 3,
         title: 'Quần jogger kaki nam túi hộp New arrival 04',
         price: 105000,
         typeProduct: "Quần jogger",
@@ -190,7 +175,6 @@ let quanjogger = [
         imagePath: "/img/product/quan/quan-jogger-3.jpg"
     }),
     new Product ({
-        id: 4,
         title: 'Quần Jogger Nam Nữ Chất Nỉ Cao Cấp',
         price: 59000,
         typeProduct: "Quần jogger",
@@ -213,7 +197,6 @@ done = 0;
 
 let vay = [
     new Product ({
-        id: 1,
         title: 'Chân Váy Tennis',
         price: 59000,
         typeProduct: "Váy",
@@ -223,7 +206,6 @@ let vay = [
     }),
     
     new Product ({
-        id: 2,
         title: 'Chân váy xòe 2 túi sành điệu - màu đen',
         price: 69000,
         typeProduct: "Váy",
@@ -233,7 +215,6 @@ let vay = [
     }),
     
     new Product ({
-        id: 3,
         title: 'Chân váy jeans chữ A',
         price: 91000,
         typeProduct: "Váy",
@@ -243,7 +224,6 @@ let vay = [
     }),
 
     new Product ({
-        id: 4,
         title: 'Chân Váy Xòe Ren Chân - Đen',
         price: 54000,
         typeProduct: "Váy",
@@ -266,7 +246,6 @@ done = 0;
 
 let dam = [
     new Product ({
-        id: 1,
         title: 'Đầm Hoa Xinh Dễ Thương Thời Trang Kiểu Hàn Quốc DN015 MayHomes',
         price: 149000,
         typeProduct: "Đầm",
@@ -276,7 +255,6 @@ let dam = [
     }),
     
     new Product ({
-        id: 2,
         title: 'Đầm hồng form ngắn thắt eo',
         price: 139000,
         typeProduct: "Đầm",
@@ -285,8 +263,7 @@ let dam = [
         imagePath: "/img/product/quan/dam-2.jpg"
     }),
     
-    new Product ({
-        id: 3,
+    new Product ({ 
         title: 'Đầm mila xanh form dài thắt eo',
         price: 119000,
         typeProduct: "Đầm",
@@ -296,7 +273,6 @@ let dam = [
     }),
    
     new Product ({
-        id: 4,
         title: 'Đầm Tay Xếp Ly Kiểu Gumac MS09958',
         price: 220000,
         typeProduct: "Đầm",
@@ -320,7 +296,6 @@ done = 0;
 //=====================Ao=============================
 let aoLen = [
     new Product ({
-        id: 1,
         title: 'Áo len thêu hoa',
         price: 150000,
         typeProduct: 'Áo len',
@@ -329,8 +304,7 @@ let aoLen = [
         imagePath: '/img/product/ao/ao_len/aolen1.jpeg'
     }),
 
-    new Product ({
-        id: 2,
+    new Product ({   
         title: 'Áo len trắng',
         price: 159000,
         typeProduct: 'Áo len',
@@ -340,7 +314,6 @@ let aoLen = [
     }),
 
     new Product ({
-        id: 3,
         title: 'Áo len đỏ',
         price: 219000,
         typeProduct: 'Áo len',
@@ -350,7 +323,6 @@ let aoLen = [
     }),
    
     new Product ({
-        id: 4,
         title: 'Áo len dài tay',
         price: 319000,
         typeProduct: 'Áo len',
@@ -374,7 +346,6 @@ done = 0;
 
 let aoThun = [
     new Product ({
-        id: 1,
         title: 'Áo thun Raglan',
         price: 150000,
         typeProduct: 'Áo thun',
@@ -384,7 +355,6 @@ let aoThun = [
     }),
 
     new Product ({
-        id: 2,
         title: 'Áo thun polo trắng',
         price: 159000,
         brand: "Pull&Bear",
@@ -393,8 +363,7 @@ let aoThun = [
         imagePath: '/img/product/ao/ao_thun/aothun2.jpeg'
     }),
 
-    new Product ({
-        id: 3,
+    new Product ({ 
         title: 'Áo thun xanh trơn',
         price: 219000,
         typeProduct: 'Áo thun',
@@ -403,8 +372,7 @@ let aoThun = [
         imagePath: '/img/product/ao/ao_thun/aothun3.jpeg'
     }),
    
-    new Product ({
-        id: 4,
+    new Product ({  
         title: 'Áo thun vàng trơn',
         price: 319000,
         typeProduct: 'Áo thun',
@@ -428,7 +396,6 @@ done = 0;
 
 let aoLot = [
     new Product ({
-        id: 1,
         title: 'Áo lót trắng',
         price: 150000,
         typeProduct: 'Áo lót',
@@ -437,8 +404,7 @@ let aoLot = [
         imagePath: '/img/product/ao/ao_lot/aolot1.jpeg'
     }),
 
-    new Product ({
-        id: 2,
+    new Product ({  
         title: 'Áo lót đỏ',
         price: 159000,
         typeProduct: 'Áo lót',
@@ -447,8 +413,7 @@ let aoLot = [
         imagePath: '/img/product/ao/ao_lot/aolot2.jpeg'
     }),
 
-    new Product ({
-        id: 3,
+    new Product ({ 
         title: 'Áo lót đen',
         price: 219000,
         typeProduct: 'Áo lót',
@@ -458,7 +423,6 @@ let aoLot = [
     }),
    
     new Product ({
-        id: 4,
         title: 'Áo lót thêu hoa',
         price: 319000,
         typeProduct: 'Áo lót',
@@ -481,8 +445,7 @@ done = 0;
 
 
 let aoSoMi = [
-    new Product ({
-        id: 1,
+    new Product ({   
         title: 'Áo sơ mi nữ',
         price: 150000,
         typeProduct: 'Áo sơ mi',
@@ -491,8 +454,7 @@ let aoSoMi = [
         imagePath: '/img/product/ao/ao_so_mi/aosomi1.jpeg'
     }),
 
-    new Product ({
-        id: 2,
+    new Product ({    
         title: 'Áo sơ mi nam',
         price: 159000,
         typeProduct: 'Áo sơ mi',
@@ -501,8 +463,7 @@ let aoSoMi = [
         imagePath: '/img/product/ao/ao_so_mi/aosomi2.jpeg'
     }),
 
-    new Product ({
-        id: 3,
+    new Product ({     
         title: 'Áo sơ mi cánh dơi',
         price: 219000,
         typeProduct: 'Áo sơ mi',
@@ -511,8 +472,7 @@ let aoSoMi = [
         imagePath: '/img/product/ao/ao_so_mi/aosomi3.jpeg'
     }),
    
-    new Product ({
-        id: 4,
+    new Product ({      
         title: 'Áo sơ mi tay dài thêu hoa',
         price: 319000,
         brand: "Routine",
@@ -537,8 +497,7 @@ done = 0;
 
 //===================================Giay area==============================
 let giaySneaker = [
-    new Product ({
-        id: 1,
+    new Product ({   
         title: 'Sneaker Passo kem',
         price: 150000,
         typeProduct: 'Sneaker',
@@ -547,8 +506,7 @@ let giaySneaker = [
         imagePath: '/img/product/giay/sneaker/sneaker1.jpeg'
     }),
 
-    new Product ({
-        id: 2,
+    new Product ({ 
         title: 'Sneaker nam cao cấp',
         price: 159000,
         typeProduct: 'Sneaker',
@@ -557,8 +515,7 @@ let giaySneaker = [
         imagePath: '/img/product/giay/sneaker/sneaker2.jpeg'
     }),
 
-    new Product ({
-        id: 3,
+    new Product ({ 
         title: 'Chunky sneaker',
         price: 219000,
         typeProduct: 'Sneaker',
@@ -567,8 +524,7 @@ let giaySneaker = [
         imagePath: '/img/product/giay/sneaker/sneaker3.jpeg'
     }),
    
-    new Product ({
-        id: 4,
+    new Product ({ 
         title: 'Sneaker cao cấp đỏ',
         price: 319000,
         typeProduct: 'Sneaker',
@@ -591,7 +547,6 @@ done = 0;
 
 let giayCaoCo = [
     new Product ({
-        id: 1,
         title: 'Giày cao cổ đen nam',
         price: 150000,
         typeProduct: 'Giày cao cổ',
@@ -601,7 +556,6 @@ let giayCaoCo = [
     }),
 
     new Product ({
-        id: 2,
         title: 'Giày cao cổ trắng',
         price: 159000,
         typeProduct: 'Giày cao cổ',
@@ -611,7 +565,6 @@ let giayCaoCo = [
     }),
 
     new Product ({
-        id: 3,
         title: 'Giày cao cổ vanz',
         price: 219000,
         typeProduct: 'Giày cao cổ',
@@ -621,7 +574,6 @@ let giayCaoCo = [
     }),
    
     new Product ({
-        id: 4,
         title: 'Giày cao cổ da độn',
         price: 319000,
         typeProduct: 'Giày cao cổ',
@@ -644,7 +596,6 @@ done = 0;
 
 let giayCaoGot = [
     new Product ({
-        id: 1,
         title: 'Giày cao gót đen',
         price: 150000,
         typeProduct: 'Giày cao gót',
@@ -654,7 +605,6 @@ let giayCaoGot = [
     }),
 
     new Product ({
-        id: 2,
         title: 'Giày cao cổ trơn mũi nhọn',
         price: 159000,
         typeProduct: 'Giày cao gót',
@@ -664,7 +614,6 @@ let giayCaoGot = [
     }),
 
     new Product ({
-        id: 3,
         title: 'Giày cao gót sandal',
         price: 219000,
         typeProduct: 'Giày cao gót',    
@@ -674,7 +623,6 @@ let giayCaoGot = [
     }),
    
     new Product ({
-        id: 4,
         title: 'Giày cao gót crazy',
         price: 319000,
         typeProduct: 'Giày cao gót',

@@ -80,6 +80,11 @@ width: 250px;
 }
 
 
+.cart-images {
+  width: 145px;
+  height: 145px;
+}
+
 /*----------------------------------------------------*/
 body {
   line-height: 24px;

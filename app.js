@@ -9,7 +9,7 @@ let indexRouter = require('./routes/index');
 let categoryRouter = require('./routes/category');
 let searchResultRouter = require('./routes/search-result');
 let singleProductRouter = require('./routes/single-product');
-let cartRouter = require('./routes/cart');
+let cartRouter = require('./routes/shopping-cart');
 let checkoutRouter = require('./routes/checkout');
 let confirmationRouter = require('./routes/confirmation');
 let trackingRouter = require('./routes/tracking');
@@ -24,6 +24,7 @@ db.on('error',console.error.bind(console, 'MongoDB connection error.....'));
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+var mongoStore = require('connect-mongo')(session);
 
 let app = express();
 
@@ -38,7 +39,9 @@ app.set('view engine', 'hbs');
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new mongoStore({mongooseConnection: mongoose.connection}),
+  cookie: { maxAge: 24*60*1000}
 }));
 
 // passport middleware
@@ -59,6 +62,7 @@ app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
   res.locals.session = req.session;
   res.locals.user = req.user;
+  res.locals.session = req.session;
   next();
 });
 

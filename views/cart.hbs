@@ -21,6 +21,7 @@
 			<div class="cart_inner">
 				<div class="table-responsive">
 					<table class="table">
+						{{#if products}}
 						<thead>
 							<tr>
 								<th scope="col">Sản phẩm</th>
@@ -30,23 +31,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+
+							{{#each products }}
+								<tr>
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
+											<img class = "cart-images" src="{{this.item.imagePath}}" alt="">
 										</div>
 										<div class="media-body">
-											<p>Cửa hàng tối giản để sử dụng đa mục đích</p>
+											<p>{{this.item.title}}</p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>300.000 VND</h5>
+									<h5>{{this.item.price}} VND</h5>
 								</td>
 								<td>
 									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+										<input type="text" name="qty" id="sst" maxlength="12" value="{{this.quantity}}" title="Quantity:" class="input-text qty">
 										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 										 class="increase items-count" type="button">
 											<i class="lnr lnr-chevron-up"></i>
@@ -58,71 +61,11 @@
 									</div>
 								</td>
 								<td>
-									<h5>900.000 VND</h5>
+									<h5>{{this.price}} VND</h5>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<p>Cửa hàng tối giản để sử dụng đa mục đích</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>300.000 VND</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-										 class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-										 class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>900.000 VND</h5>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<p>Cửa hàng tối giản để sử dụng đa mục đích</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>300.000 VND</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-										 class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-										 class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>900.000 VND</h5>
-								</td>
-							</tr>
+							{{/each}}
+
 							<tr class="bottom_button">
 								<td>
 									<a class="gray_btn" href="#">Cập nhật giỏ hàng</a>
@@ -152,7 +95,7 @@
 									<h5>Tổng chi phí</h5>
 								</td>
 								<td>
-									<h5>2.500.000 VND</h5>
+									<h5>{{totalPrice}} VND</h5>
 								</td>
 							</tr>
 							<tr class="shipping_area">
@@ -217,7 +160,15 @@
 									</div>
 								</td>
 							</tr>
+
+							{{else}}
+							<div class="row">
+        						<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            						<h2>No Items in Cart</h2>
+       							</div>
+    						</div>
 						</tbody>
+						{{/if}}
 					</table>
 				</div>
 			</div>
