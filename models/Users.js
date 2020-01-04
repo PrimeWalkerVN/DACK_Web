@@ -29,6 +29,9 @@ const UserSchema = new mongoose.Schema({
     },
     resetPasswordExpires:{
         type: Date
+    },
+    address:{
+        type: String
     }
 });
 

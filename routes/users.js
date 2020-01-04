@@ -3,11 +3,16 @@ const router = express.Router();
 const userTask = require('../controllers/userTask')
 const { forwardAuthenticated } = require('../config/auth');
 
-
-
-const User = require("../models/Users");
+const User = require('../models/Users');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const validator = require("email-validator");
 //load profile user
-router.get('/profile', userTask.isLoggedIn, (req, res) => {res.render('profile')});
+router.get('/profile', userTask.isLoggedIn, (req, res) => {
+     User.findById(req.user.username, function (err, user){
+        res.render('profile', user);
+    })
+});
     
 //Logout
 router.get('/logout', (req, res) => {
