@@ -35,3 +35,29 @@ exports.categoryPageAddToCart = function(req,res,next){
         res.redirect('/category');
     });
 };
+
+exports.updateCart = function(req,res,next){
+    let productId = req.params.id;
+    let action = req.query.action;
+    let cart = new Cart(req.session.cart ? req.session.cart: {});
+
+    Product.findById(productId,function (err,product){
+        if(err) {
+            return res.redirect('/cart');
+        }
+        switch(action)
+        {
+            case "add":
+                cart.add(product,product.id);
+                break;
+            case "remove":
+                cart.removeItem(product.id);
+                break;
+            case "clear":
+                cart.clearItem(product.id);
+                break;
+        }
+        req.session.cart = cart;
+        res.redirect('/cart');
+    });
+}
