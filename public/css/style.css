@@ -125,6 +125,9 @@ button:focus {
   margin: 0px;
   padding: 0px; }
 
+.btn-comfirm-profile{
+  text-align: center;
+}
 a {
   text-decoration: none;
   transition: all 0.3s ease-in-out; }
@@ -3826,6 +3829,11 @@ h6 {
 .p_star .placeholder::after {
   content: " *";
   color: tomato; }
+
+.profile-css{
+  place-content: center;
+  text-align: left;
+}
 
 .cupon_area {
   margin-bottom: 40px; }
