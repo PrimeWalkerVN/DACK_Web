@@ -6,7 +6,7 @@ let { comment } = require('../models/productComment');
 
 
 exports.loadSingleProduct = function (req, res, next) {
-  request('https://still-plateau-02404.herokuapp.com/', { json: true }, (err, rspd, body) => {
+  request('https://still-plateau-02404.herokuapp.com/relatedProducts', { json: true }, (err, rspd, body) => {
     if (err) { return console.log(err); }
     console.log(body);
 
