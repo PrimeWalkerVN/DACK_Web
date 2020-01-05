@@ -3462,6 +3462,10 @@ h6 {
       .product_description_area .tab-content .table tbody tr:first-child td {
         border-top: 0px; }
 
+.time-comment{
+  color: gray;
+}
+
 .review_item {
   margin-bottom: 15px; }
   .review_item:last-child {
