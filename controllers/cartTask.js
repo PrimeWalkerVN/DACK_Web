@@ -1,5 +1,5 @@
 let Product = require('../models/product');
-var Cart = require('../models/cart')
+let Cart = require('../models/cart')
 
 
 exports.loadCart = function(req, res,next) {
@@ -60,4 +60,11 @@ exports.updateCart = function(req,res,next){
         req.session.cart = cart;
         res.redirect('/cart');
     });
+}
+
+exports.isLoggedIn = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/users/login');
 }

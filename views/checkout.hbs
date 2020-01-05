@@ -1,203 +1,164 @@
-
-	<!--================Home Banner Area =================-->
-	<section class="banner_area">
-		<div class="banner_inner d-flex align-items-center">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="banner_content text-center">
-					<h2>Thanh toán sản phẩm</h2>
-					<div class="page_link">
-						<a href="/index">Trang chủ</a>
-						<a href="/checkout">Thanh toán</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================End Home Banner Area =================-->
-
-	<!--================Checkout Area =================-->
-	<section class="checkout_area section_gap">
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="overlay"></div>
 		<div class="container">
-			<div class="returning_customer">
-				<div class="check_title">
-					<h2>Bạn đã là khách hàng của chúng tôi chưa?
-						<a href="/login">Click vào đây để đăng nhập</a>
-					</h2>
+			<div class="banner_content text-center">
+				<h2>Thanh toán sản phẩm</h2>
+				<div class="page_link">
+					<a href="/index">Trang chủ</a>
+					<a href="/checkout">Thanh toán</a>
 				</div>
-				<p>Nếu bạn đã mua sắm với chúng tôi trước đây, 
-					vui lòng nhập thông tin của bạn vào các ô bên dưới. Nếu bạn là khách hàng mới, vui lòng tiếp tục với phần Thanh toán & Giao hàng.</p>
-				<form class="row contact_form" action="#" method="post" novalidate="novalidate">
-					<div class="col-md-6 form-group p_star">
-						<input type="text" class="form-control" id="name" name="name" value=" ">
-						<span class="placeholder" data-placeholder="Tên đăng nhập hoặc Email"></span>
-					</div>
-					<div class="col-md-6 form-group p_star">
-						<input type="password" class="form-control" id="password" name="password" value="">
-						<span class="placeholder" data-placeholder="Mật khẩu"></span>
-					</div>
-					<div class="col-md-12 form-group">
-						<button type="submit" value="submit" class="btn submit_btn">Gửi tin nhắn</button>
-						<div class="creat_account">
-							<input type="checkbox" id="f-option" name="selector">
-							<label for="f-option">Ghi nhớ</label>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Checkout Area =================-->
+<section class="checkout_area section_gap">
+	<div class="container">
+
+		<div class="billing_details">
+			<div class="row">
+				<div class="col-lg-7">
+					<h3>Thông tin giao hàng và thanh toán</h3>
+					<form class="row contact_form" action="create-order" method="post" novalidate="novalidate" id="detail_delivery">
+						<div class="col-md-12 form-group p_star">
+							<input type="text" class="form-control" id="name" name="name">
+							<span class="placeholder" data-placeholder="Họ Tên"></span>
 						</div>
-						<a class="lost_pass" href="/forgot">Quên mật khẩu?</a>
-					</div>
-				</form>
-			</div>
-			<div class="cupon_area">
-				<div class="check_title">
-					<h2>Bạn có mã giảm giá
-						<a href="#">Click vào để nhập mã giảm giá</a>
-					</h2>
-				</div>
-				<input type="text" placeholder="Nhập mã giảm giá">
-				<a class="tp_btn" href="#">Áp dụng mã</a>
-			</div>
-			<div class="billing_details">
-				<div class="row">
-					<div class="col-lg-8">
-						<h3>Thông tin giao hàng và thanh toán</h3>
-						<form class="row contact_form" action="#" method="post" novalidate="novalidate">
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="first" name="name">
-								<span class="placeholder" data-placeholder="Họ"></span>
-							</div>
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="last" name="name">
-								<span class="placeholder" data-placeholder="Tên"></span>
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="company" name="company" placeholder="Tên công ty">
-							</div>
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="number" name="number">
-								<span class="placeholder" data-placeholder="Số điện thoại"></span>
-							</div>
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="email" name="compemailany">
-								<span class="placeholder" data-placeholder="Địa chỉ email"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<select class="country_select">
-									<option value="1">Quốc gia</option>
-									<option value="2">Quốc gia</option>
-									<option value="4">Quốc gia</option>
-								</select>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="add1" name="add1">
-								<span class="placeholder" data-placeholder="Địa chỉ 1"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="add2" name="add2">
-								<span class="placeholder" data-placeholder="Địa chỉ 2"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="city" name="city">
-								<span class="placeholder" data-placeholder="Quận/Huyện"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<select class="country_select">
-									<option value="1">Hồ Chí Minh</option>
-									<option value="2">Hà Nội</option>
-									<option value="4">Đà Lạt</option>
-								</select>
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Tạo tài khoản?</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<h3>Chi tiết vận chuyển</h3>
-									<input type="checkbox" id="f-option3" name="selector">
-									<label for="f-option3">Chuyển đến địa chỉ khác?</label>
-								</div>
-								<textarea class="form-control" name="message" id="message" rows="1" placeholder="Ghi chú thêm"></textarea>
-							</div>
-						</form>
-					</div>
-					<div class="col-lg-4">
-						<div class="order_box">
-							<h2>Đơn hàng của bạn</h2>
-							<ul class="list">
-								<li>
-									<a href="#">Sản phẩm
-										<span>Tổng</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">Quần mango
-										<span class="middle">x 02</span>
-										<span class="last">800.000 VND</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">Áo flannel
-										<span class="middle">x 02</span>
-										<span class="last">800.000 VND</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">Giày jordan air 4
-										<span class="middle">x 02</span>
-										<span class="last">800.000 VND</span>
-									</a>
-								</li>
-							</ul>
-							<ul class="list list_2">
-								<li>
-									<a href="#">Tổng chi phí
-										<span>2.400.000 VND</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">Vận chuyển
-										<span>Giao hàng chuẩn: 20.000 VND</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">Tổng đơn hàng
-										<span>$2.420.000 VND</span>
-									</a>
-								</li>
-							</ul>
-							<div class="payment_item">
-								<div class="radion_btn">
-									<input type="radio" id="f-option5" name="selector">
-									<label for="f-option5">Kiểm tra payments</label>
-									<div class="check"></div>
-								</div>
-								<p>Vui lòng gửi phần kiểm tra Tên Cửa hàng, Phố Cửa hàng, Cửa hàng Thị trấn, Cửa hàng Bang / Quận, Mã bưu điện.</p>
-							</div>
-							<div class="payment_item active">
-								<div class="radion_btn">
-									<input type="radio" id="f-option6" name="selector">
-									<label for="f-option6">Paypal </label>
-									<img src="img/product/single-product/card.jpg" alt="">
-									<div class="check"></div>
-								</div>
-								<p>Vui lòng gửi phần kiểm tra Tên Cửa hàng, Phố Cửa hàng, Cửa hàng Thị trấn, Cửa hàng Bang / Quận, Mã bưu điện.</p>
-							</div>
+
+						<div class="col-md-6 form-group p_star">
+							<input type="text" class="form-control" id="telephone" name="telephone">
+							<span class="placeholder" data-placeholder="Số điện thoại"></span>
+						</div>
+						<div class="col-md-6 form-group p_star">
+							<input type="text" class="form-control" id="email" name="email">
+							<span class="placeholder" data-placeholder="Địa chỉ email"></span>
+						
+						</div>
+						<div class="col-md-12 form-group p_star">
+							<input type="text" class="form-control" id="address" name="address">
+							<span class="placeholder" data-placeholder="Địa chỉ"></span>
+						</div>
+						<div class="col-md-12 form-group p_star">
+							<input type="text" class="form-control" id="province" name="province">
+							<span class="placeholder" data-placeholder="Quận/Huyện"></span>
+						</div>
+						<div class="col-md-12 form-group p_star">
+							<select name = "district" class="country_select" form="detail_delivery">
+								<option value="Hồ Chí Minh">Hồ Chí Minh</option>
+								<option value="Hà Nội">Hà Nội</option>
+								<option value="Đà Nẵng">Đà Nẵng</option>
+								<option value="Bình Dương">Bình Dương</option>
+								<option value="Đồng Nai">Đồng Nai</option>
+								<option value="Khánh Hòa">Khánh Hòa</option>
+								<option value="Hải Phòng">Hải Phòng</option>
+								<option value="Long An">Long An</option>	
+								<option value="Quảng Nam">Quảng Nam</option>
+								<option value="Bà Rịa Vũng Tàu">Bà Rịa Vũng Tàu</option>
+								<option value="Đắk Lắk">Đắk Lắk</option>
+								<option value="Cần Thơ">Cần Thơ</option>
+								<option value="Bình Thuận  ">Bình Thuận </option>
+								<option value="Lâm Đồng">Lâm Đồng</option>
+								<option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+								<option value="Kiên Giang">Kiên Giang</option>
+								<option value="Bắc Ninh">Bắc Ninh</option>
+								<option value="Quảng Ninh">Quảng Ninh</option>
+								<option value="Thanh Hóa">Thanh Hóa</option>
+								<option value="Nghệ An">Nghệ An</option>
+								<option value="Hải Dương">Hải Dương</option>
+								<option value="Gia Lai">Gia Lai</option>
+								<option value="Bình Phước">Bình Phước</option>
+								<option value="Hưng Yên">Hưng Yên</option>
+								<option value="Bình Định">Bình Định</option>
+								<option value="Tiền Giang">Tiền Giang</option>
+								<option value="Thái Bình">Thái Bình</option>
+								<option value="Bắc Giang">Bắc Giang</option>
+								<option value="Hòa Bình">Hòa Bình</option>
+								<option value="An Giang">An Giang</option>
+								<option value="Vĩnh Phúc">Vĩnh Phúc</option>
+								<option value="Tây Ninh">Tây Ninh</option>
+								<option value="Thái Nguyên">Thái Nguyên</option>
+								<option value="Lào Cai">Lào Cai</option>
+								<option value="Nam Định">Nam Định</option>
+								<option value="Quảng Ngãi">Quảng Ngãi</option>
+								<option value="Bến Tre">Bến Tre</option>
+								<option value="Đắk Nông">Đắk Nông</option>
+								<option value="Cà Mau">Cà Mau</option>
+								<option value="Vĩnh Long">Vĩnh Long</option>
+								<option value="Ninh Bình">Ninh Bình</option>
+								<option value="Phú Thọ">Phú Thọ</option>
+								<option value="Ninh Thuận">Ninh Thuận</option>
+								<option value="Phú Yên">Phú Yên</option>
+								<option value="Hà Nam">Hà Nam</option>
+								<option value="Hà Tĩnh">Hà Tĩnh</option>
+								<option value="Đồng Tháp">Đồng Tháp</option>
+								<option value="Sóc Trăng">Sóc Trăng</option>
+								<option value="Kon Tum">Kon Tum</option>
+								<option value="Quảng Bình">Quảng Bình</option>
+								<option value="Quảng Trị">Quảng Trị</option>
+								<option value="Trà Vinh">Trà Vinh</option>
+								<option value="Hậu Giang">Hậu Giang</option>
+								<option value="Sơn La">Sơn La</option>
+								<option value="Bạc Liêu">Bạc Liêu</option>
+								<option value="Yên Bái">Yên Bái</option>
+								<option value="Tuyên Quang">Tuyên Quang</option>
+								<option value="Điện Biên">Điện Biên</option>
+								<option value="Lai Châu">Lai Châu</option>
+								<option value="Lạng Sơn">Lạng Sơn</option>
+								<option value="Hà Giang">Hà Giang</option>
+								<option value="Bắc Kạn">Bắc Kạn</option>
+								<option value="Cao Bằng">Cao Bằng</option>
+							</select>
+						</div>
+
+						<div class="col-md-12 form-group">
 							<div class="creat_account">
-								<input type="checkbox" id="f-option4" name="selector">
-								<label for="f-option4">Tôi đã đọc và chấp nhận </label>
-								<a href="#">Điều khoản&điều kiện*</a>
+								<h3>Chi tiết vận chuyển</h3>
 							</div>
-							<a class="main_btn" href="#">Tiến hành thanh toán</a>
+							<textarea class="form-control" name="message" id="message" rows="1"
+								placeholder="Ghi chú thêm"></textarea>
 						</div>
+					</form>
+				</div>
+				<div class="col-lg-5">
+					<div class="order_box">
+						<h2>Đơn hàng của bạn</h2>
+						<ul class="list">
+							<li>
+								<div class="row">
+								<p class="col-sm-7">Sản phẩm</p>
+								<p class="col-sm-3">Số lượng</p>
+								<p class="col-sm-2">Tổng</p>
+								</div>
+							</li>
+							{{#each products }}
+							<li>
+								<div class="row">
+								<a class="col-sm-7" href="#">{{this.item.title}}</a>
+								<a class="col-sm-2">x {{this.quantity}}</a>
+								<a class="col-sm-3">{{this.price}} VND</a>
+								</div>
+							</li>
+							{{/each}}
+							
+						</ul>
+						<ul class="list list_2">
+							
+							<li>
+								<a href="#">Tổng đơn hàng
+									<span>${{totalPrice}} VND</span>
+								</a>
+							</li>
+						</ul>
+						
+						<button type="submit" class="main_btn" form="detail_delivery">Tiến hành thanh toán</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!--================End Checkout Area =================-->
-
-
+	</div>
+</section>
+<!--================End Checkout Area =================-->
