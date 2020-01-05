@@ -9,7 +9,6 @@
 	<title>Fashiop</title>
 	<!-- Bootstrap CSS -->
 
-	<script defer src='/js/utils.js'></script>
 	<script defer src='/js/filter.js'></script>
 	<script defer src='/js/page-pagination.js'></script>
 	
@@ -127,7 +126,7 @@
 
 										<input class="search-txt" type="text" name ="" placeholder="Bạn cần kiếm gì?">
 
-										<a onclick="utils.search();" href="" class="icons">
+										<a id="search-bar" onclick="dc.search();" href="#" class="icons">
 											<i class="fa fa-search" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -162,7 +161,9 @@
 	</header>
 	<!--================Header Menu Area =================-->
 
- {{{body}}}
+	<section id="dynamic-body">
+		{{{body}}}
+	</section>
 
  	<!--================ Subscription Area ================-->
 	<section class="subscription-area section_gap">
