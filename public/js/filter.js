@@ -5,9 +5,10 @@
   let nTurn = 0;
   let sortType = "normal";
 
-  let productsDbUrl = "https://still-plateau-02404.herokuapp.com/products/";
+  let productsDbUrl = "http://localhost:8080/";
   let queryStr = "";
   let categorySingleProductHtmlUrl = '/snippets/category-single-product.hbs';
+  let searchResultHtml = '/snippets/search-result.hbs';
   let snippet;
   let data = [];
 
@@ -101,6 +102,10 @@
     });
     tmpQueryStr = tmpQueryStr.substring(0, tmpQueryStr.length - 1);
 
+    tmpQueryStr += "&title=";
+    tmpQueryStr += $('.search-txt')[0].value;
+    tmpQueryStr += $('#advanced-search')[0].value;
+
     tmpQueryStr += "&color=";
     $(".color-filter input").each(function() {
       if($(this)[0].checked){
@@ -148,6 +153,18 @@
     let tmp = snippet;
     tmp = tmp.replace(new RegExp(pattern, "g"), value);
     return tmp;
+  }
+
+  dc.search = () => {
+    // let keyWord = $('.nav-item.searchbox .search-txt')[0].value;
+    // $('#search-bar')[0].href = "/search-result/" + keyWord;
+
+    $('#dynamic-body').empty();
+    $.get(searchResultHtml, (data, status) => {
+      $('#dynamic-body').append(data);
+    });
+
+    dc.filter();
   }
 
   global.dc = dc;
