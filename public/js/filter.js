@@ -5,7 +5,7 @@
   let nTurn = 0;
   let sortType = "normal";
 
-  let productsDbUrl = "http://localhost:8080/";
+  let productsDbUrl = "https://still-plateau-02404.herokuapp.com/";
   let queryStr = "";
   let categorySingleProductHtmlUrl = '/snippets/category-single-product.hbs';
   let searchResultHtml = '/snippets/search-result.hbs';
