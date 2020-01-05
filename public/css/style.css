@@ -158,7 +158,7 @@ a {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1170px; } }
+    max-width: 1270px; } }
 
 .container-fluid {
   margin: 0px !important;
@@ -3461,6 +3461,10 @@ h6 {
           white-space: nowrap; }
       .product_description_area .tab-content .table tbody tr:first-child td {
         border-top: 0px; }
+
+.time-comment{
+  color: gray;
+}
 
 .review_item {
   margin-bottom: 15px; }

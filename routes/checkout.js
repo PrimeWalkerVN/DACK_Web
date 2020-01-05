@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let checkoutTask = require('../controllers/checkoutTask.js');
 
 /* GET home page. */
-router.get('/', function(req, res,next) {
-  res.render('checkout');
-});
+router.get('/',checkoutTask.isLoggedIn,checkoutTask.loadCart);
+router.post('/create-order',checkoutTask.createOrder);
 
 module.exports = router;

@@ -20,7 +20,7 @@ module.exports = function Cart(oldCart){
         this.totalQuantity--;
         this.totalPrice -= this.items[id].item.price;
 
-        if (this.items[id].qty <= 0) {
+        if (this.items[id].quantity <= 0) {
             delete this.items[id];
         }
     };
