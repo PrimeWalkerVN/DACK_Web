@@ -321,20 +321,103 @@ exports.postSignIn = (req, res, next) => {
         });
     }else{
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: req.session.redirectTo || '/',
         failureRedirect: 'login',
         successFlash: true,
         failureFlash: true
     })(req, res, next);
+    delete req.session.redirectTo;
 }
 };
+
+
+
+//method get,post for profile users
+//load profile
+exports.loadProfile = (req, res) => {
+    User.findById(req.user._id, function (err, user) {
+        console.log(user);
+        res.render('profile', user);
+    })
+};
+
+//update profile 
+exports.updateProfile = function (req, res) {
+
+    // User.findOneAndUpdate({
+    //     username: req.user.username
+    // },{name: req.body.name2, email: req.body.email2, address: req.body.address2})
+
+    User.findOneAndUpdate({ username: req.user.username },
+        { $set: { name: req.body.name2, email: req.body.email2, address: req.body.address2 } },
+        { new: true },
+        (err, data) => {
+            if (err) console.log("Error when update info"); 
+            res.redirect('/users/profile');
+        }
+    );
+};
+
+
+//method post for user forgot Password
+exports.forgotPasswordUser =  (req, res) => {
+    console.log(req.body.oldpassword);
+    // console(req.user.username);
+    User.findById(req.user._id, function (err, user) {
+        console.log("abc");
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(user.password);
+            console.log(req.body.oldpassword);
+
+            bcrypt.compare(req.body.oldpassword, user.password, function (err, isMatch) {
+                if (err) {
+                    let errors = [];
+                    res.redirect('/users/profile');
+                } else {
+                    console.log("check match");
+                    if (isMatch) {
+                        console.log("check match success");
+                        if (req.body.newpassword1 === req.body.newpassword2) {
+                            bcrypt.genSalt(10, (err, salt) =>
+                                bcrypt.hash(req.body.newpassword1, salt, (err, hash) => {
+                                    if (err) throw err;
+                                    let pw = hash;
+                                    console.log(hash);
+                                    User.findOneAndUpdate({ _id: req.user._id }, { $set: { password: hash } },
+                                        { new: true },
+                                        (err, data) => {
+                                            if (err) console.log("Error when update info");
+                                            res.redirect('/users/profile');
+                                        }
+                                    )
+                                }));
+                        } else {
+                            let errors = [];
+                            errors.push('Mật khẩu không khớp!');
+                            req.flash('error', errors);
+                            return res.redirect(url);
+                        }
+                    }
+                    else{
+                        console.log("Password khong chinh xac");
+                        res.redirect('/users/profile');
+                    }
+                }
+            }
+            )
+        }
+    });
+};
+
 
 
 //handle user already logged in or not
 exports.isLoggedIn = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
-    }
+    } 
     res.redirect('/');
 }
 exports.notLoggedIn = function (req, res, next) {

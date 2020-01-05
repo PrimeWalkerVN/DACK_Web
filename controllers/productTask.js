@@ -6,10 +6,11 @@ let { comment } = require('../models/productComment');
 
 
 exports.loadSingleProduct = function (req, res, next) {
-  request('https://still-plateau-02404.herokuapp.com/relatedProducts', { json: true }, (err, rspd, body) => {
+  request('https://still-plateau-02404.herokuapp.com/relatedProducts', { json: true }, async (err, rspd, body) => {
     if (err) { return console.log(err); }
     console.log(body);
 
+    await
     Product.findOne({ "_id": mobgodb.ObjectID(req.params.id) }, async function (err, doc) {
       if (err) {
         console.log(err);

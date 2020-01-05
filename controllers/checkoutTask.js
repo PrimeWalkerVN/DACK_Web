@@ -18,9 +18,7 @@ exports.createOrder = async function(req,res,next){
 
     if(!name||!telephone||!email||!address||!province||!district){
         errors.push({msg: 'Vui lòng nhập đầy đủ thông tin!'});
-    }
-
-    if(!validator.isEmail(email)){
+    }else if(!validator.isEmail(email)){
         errors.push({msg: 'Sai email, vui lòng nhập lại!'});
     }
 
@@ -50,6 +48,7 @@ exports.createOrder = async function(req,res,next){
         }
     
         let newOrder = new Order({
+            userId: req.user._id,
             name: req.body.name,
             telephone: req.body.telephone,
             email: req.body.email,
@@ -65,18 +64,17 @@ exports.createOrder = async function(req,res,next){
          await newOrder.save(function(err,result) {
              if(err) return res.status(500).json({message:err.message})
              else {
-             let successMsg=[];
-             res.render('confirmation');
+                req.session.cart = {};
+                res.render('confirmation',{order:newOrder,hasSuccess:true});
              }
         });
-
     }
-
 }
 
 exports.isLoggedIn = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.session.redirectTo = req.originalUrl; 
     res.redirect('/users/login');
 }

@@ -12,12 +12,13 @@ const Item = new Schema({
 });
 
 let Order = new Schema({
+    userId: {type: mongoose.Types.ObjectId,ref:"users", required:true},
     name: {type: String, required: true},
     telephone : {type: String, required: true},
     email: {type: String, required: true},
     address: {type: String, required: true},
-    province: {type: String, required: true},
     district: {type: String, required: true},
+    province: {type: String, required: true},
     message: {type: String},
     createOn: {type: String},
     items: [Item],

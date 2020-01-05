@@ -18,7 +18,9 @@
 	<!--================Order Details Area =================-->
 	<section class="order_details p_120">
 		<div class="container">
-			<h3 class="title_confirmation">Cảm ơn. Đơn hàng của bạn đã được nhận</h3>
+			{{#if hasSuccess}}
+				<h3 class="title_confirmation">Cảm ơn. Đơn hàng của bạn đã được nhận</h3>
+			{{/if}}
 			<div class="row order_d_inner">
 				<div class="col-lg-4">
 					<div class="details_item">
@@ -26,115 +28,95 @@
 						<ul class="list">
 							<li>
 								<a href="#">
-									<span>Mã số đơn hàng</span> : 60235</a>
+									<span>Mã số đơn hàng</span> : {{order._id}}</a>
 							</li>
 							<li>
 								<a href="#">
-									<span>Tại</span> : Los Angeles</a>
+									<span>Khởi tạo lúc</span> : {{order.createOn}} </a>
 							</li>
 							<li>
 								<a href="#">
-									<span>Tổng</span> : USD 2210</a>
+									<span>Tổng</span> : {{order.totalPrice}} VND</a>
 							</li>
 							<li>
 								<a href="#">
-									<span>Payment method</span> : Check payments</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="details_item">
-						<h4>Billing Address</h4>
-						<ul class="list">
-							<li>
-								<a href="#">
-									<span>Street</span> : 56/8</a>
-							</li>
-							<li>
-								<a href="#">
-									<span>City</span> : Los Angeles</a>
-							</li>
-							<li>
-								<a href="#">
-									<span>Country</span> : United States</a>
-							</li>
-							<li>
-								<a href="#">
-									<span>Postcode </span> : 36952</a>
+									<span>Thanh toán</span> : Tiền mặt</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="details_item">
-						<h4>Shipping Address</h4>
+						<h4>Thông tin liên lạc</h4>
 						<ul class="list">
 							<li>
 								<a href="#">
-									<span>Street</span> : 56/8</a>
+									<span>Tên</span> : {{order.name}}</a>
 							</li>
 							<li>
 								<a href="#">
-									<span>City</span> : Los Angeles</a>
+									<span>Số  điện thoại</span> : {{order.telephone}}</a>
 							</li>
 							<li>
 								<a href="#">
-									<span>Country</span> : United States</a>
+									<span>Địa chỉ email</span> : {{order.email}}</a>
 							</li>
 							<li>
 								<a href="#">
-									<span>Postcode </span> : 36952</a>
+									<span>Quốc tịch </span> : Việt Nam</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="details_item">
+						<h4>Địa chỉ giao hàng</h4>
+						<ul class="list">
+							<li>
+								<a href="#">
+									<span>Địa chỉ</span> : {{order.address}}</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Quận/Huyện</span> : {{order.district}}</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Thành phố</span> : {{order.province}}</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Quốc gia </span> : Việt Nam</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="order_details_table">
-				<h2>Order Details</h2>
+				<h2>Chi tiết đơn hàng</h2>
 				<div class="table-responsive">
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">Product</th>
-								<th scope="col">Quantity</th>
+								<th scope="col">Sản phẩm</th>
+								<th scope="col">Số lượng</th>
 								<th scope="col">Tổng</th>
 							</tr>
 						</thead>
 						<tbody>
+							{{#each order.items}}
 							<tr>
 								<td>
-									<p>Áo gucci</p>
+									<p>{{this.title}}</p>
 								</td>
 								<td>
-									<h5>x 02</h5>
+									<h5>x {{this.quantity}}</h5>
 								</td>
 								<td>
-									<p>720.000 VND</p>
+									<p>{{this.price}} VND</p>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<p>Quần mango</p>
-								</td>
-								<td>
-									<h5>x 02</h5>
-								</td>
-								<td>
-									<p>720.00) VND</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Giày jordan</p>
-								</td>
-								<td>
-									<h5>x 02</h5>
-								</td>
-								<td>
-									<p>720.000 VND</p>
-								</td>
-							</tr>
+							{{/each}}
 							<tr>
 								<td>
 									<h4>Tổng chi phí</h4>
@@ -143,29 +125,7 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>2.160.000 VND</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>Vận chuyển</h4>
-								</td>
-								<td>
-									<h5></h5>
-								</td>
-								<td>
-									<p>Giao hàng chuẩn: 50.000 VND</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>Tổng</h4>
-								</td>
-								<td>
-									<h5></h5>
-								</td>
-								<td>
-									<p>2.210.000 VND</p>
+									<p>{{order.totalPrice}} VND</p>
 								</td>
 							</tr>
 						</tbody>
