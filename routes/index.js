@@ -9,4 +9,3 @@ router.get('/', taskCategory.loadHomePage);
 router.get('/add-to-cart/:id',cartTask.homePageAddToCart);
 
 module.exports = router;
- 

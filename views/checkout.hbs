@@ -23,28 +23,22 @@
 			<div class="row">
 				<div class="col-lg-7">
 					<h3>Thông tin giao hàng và thanh toán</h3>
-					<form class="row contact_form" action="create-order" method="post" novalidate="novalidate" id="detail_delivery">
-						<div class="col-md-12 form-group p_star">
-							<input type="text" class="form-control" id="name" name="name">
-							<span class="placeholder" data-placeholder="Họ Tên"></span>
+					<form class="row contact_form" action="/checkout/create-order" method="post" novalidate="novalidate" id="detail_delivery">
+						<div class="col-md-12 form-group">
+							<input placeholder= "Họ tên*" type="text" class="form-control" id="name" name="name" required = "true">
 						</div>
 
-						<div class="col-md-6 form-group p_star">
-							<input type="text" class="form-control" id="telephone" name="telephone">
-							<span class="placeholder" data-placeholder="Số điện thoại"></span>
+						<div class="col-md-6 form-group">
+							<input placeholder = "Số điện thoại*" type="text" class="form-control" id="telephone" name="telephone">
 						</div>
-						<div class="col-md-6 form-group p_star">
-							<input type="text" class="form-control" id="email" name="email">
-							<span class="placeholder" data-placeholder="Địa chỉ email"></span>
-						
+						<div class="col-md-6 form-group">
+							<input placeholder="Địa chỉ email*" type="text" class="form-control" id="email" name="email">						
 						</div>
-						<div class="col-md-12 form-group p_star">
-							<input type="text" class="form-control" id="address" name="address">
-							<span class="placeholder" data-placeholder="Địa chỉ"></span>
+						<div class="col-md-12 form-group">
+							<input type="text" placeholder="Địa chỉ*" class="form-control" id="address" name="address">
 						</div>
-						<div class="col-md-12 form-group p_star">
-							<input type="text" class="form-control" id="province" name="province">
-							<span class="placeholder" data-placeholder="Quận/Huyện"></span>
+						<div class="col-md-12 form-group">
+							<input placeholder="Quận/Huyện*" type="text" class="form-control" id="province" name="province">
 						</div>
 						<div class="col-md-12 form-group p_star">
 							<select name = "district" class="country_select" form="detail_delivery">
@@ -155,6 +149,14 @@
 						</ul>
 						
 						<button type="submit" class="main_btn" form="detail_delivery">Tiến hành thanh toán</button>
+						{{#if hasErrors}}
+            				<div class="alert alert-danger login_form">
+                				{{#each messages }}
+                    				<p>{{this.msg}}</p>
+               					{{/each}}
+            				</div>
+       					{{/if}}
+
 					</div>
 				</div>
 			</div>

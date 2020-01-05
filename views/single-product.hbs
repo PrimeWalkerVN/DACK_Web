@@ -67,8 +67,11 @@
 							Chất vải thun mềm mại, dễ thấm hút mồ hôi.
 							Phù hợp nhiều hoàn cảnh: mặc nhà, đi học, đi chơi, du lịch...</p>
 						<div class="product_count">
-							<label for="qty">Số lượng</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+							<form action = "/single-product/add-to-cart/{{product._id}}" method="get" id="product-qty">
+								<label for="qty">Số lượng</label>
+								<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+							</form>
+							
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 							 class="increase items-count" type="button">
 								<i class="lnr lnr-chevron-up"></i>
@@ -79,7 +82,7 @@
 							</button>
 						</div>
 						<div class="card_area">
-							<a class="main_btn" href="#">Thêm vào giỏ</a>
+							<button type="submit" class="main_btn" form="product-qty">Thêm vào giỏ</button>
 							<a class="icon_btn" href="#">
 								<i class="lnr lnr lnr-diamond"></i>
 							</a>

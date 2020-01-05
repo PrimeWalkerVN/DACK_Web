@@ -1,5 +1,5 @@
 let Product = require('../models/product');
-let Cart = require('../models/cart')
+let Cart = require('../models/cart');
 
 
 exports.loadCart = function(req, res,next) {
@@ -36,6 +36,22 @@ exports.categoryPageAddToCart = function(req,res,next){
     });
 };
 
+exports.singleProductAddtoCart = function (req, res,next){
+    let productId = req.params.id;
+    let qty = req.query.qty;
+    let cart = new Cart(req.session.cart ? req.session.cart: {});
+    Product.findById(productId,function (err,product){
+        if(err) {
+            return res.redirect('/single-product/' + productId);
+        }
+        for(let i= 0 ;i<qty;i++){
+            cart.add(product, product.id);
+        }
+        req.session.cart = cart;
+        res.redirect('/single-product/' + productId);
+    });
+}
+
 exports.updateCart = function(req,res,next){
     let productId = req.params.id;
     let action = req.query.action;
@@ -60,11 +76,4 @@ exports.updateCart = function(req,res,next){
         req.session.cart = cart;
         res.redirect('/cart');
     });
-}
-
-exports.isLoggedIn = function(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/users/login');
 }
