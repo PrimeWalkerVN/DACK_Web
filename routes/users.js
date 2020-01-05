@@ -25,7 +25,7 @@ router.post('/profile/info', userTask.isLoggedIn, function (req, res) {
         { $set: { name: req.body.name2, email: req.body.email2, address: req.body.address2 } },
         { new: true },
         (err, data) => {
-            if (err) console.log("Error when update info");
+            if (err) console.log("Error when update info"); 
             res.redirect('/users/profile');
         }
     );

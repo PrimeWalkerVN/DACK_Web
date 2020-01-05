@@ -1,12 +1,31 @@
 let Product = require('../models/product');
 const mobgodb = require('mongodb');
+let {productComment} = require('../models/productComment');
+let {comment} = require('../models/productComment');
 
 exports.loadSingleProduct = function(req,res,next){
-  Product.findOne({"_id": mobgodb.ObjectID(req.params.id)}, function(err,doc){   
+  Product.findOne({"_id": mobgodb.ObjectID(req.params.id)}, async function(err,doc){   
           if(err){
             console.log(err);
           }else{
-            res.render('single-product', {product: doc});
+            let commentList = [];
+            console.log(req.params.id);
+            await productComment.findOne({productId: req.params.id}, function(err, data){
+              //console.log(docs);
+              if(err){
+                commentList = [];
+              }
+              else if(data!= null){
+              commentList = data.comments;
+              }else{
+                commentList = [];
+              }
+            })
+
+            //await console.log(commentList);
+            
+
+            await res.render('single-product', {product: doc, comments: commentList});
           }
   });
 }
