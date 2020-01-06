@@ -14,7 +14,7 @@ let trackingRouter = require('./routes/tracking');
 let mongoose = require('mongoose');
 require('dotenv').config();
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_URL_LOCAL, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on('error',console.error.bind(console, 'MongoDB connection error.....'));
 
