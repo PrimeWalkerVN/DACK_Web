@@ -18,8 +18,14 @@ exports.createOrder = async function(req,res,next){
 
     if(!name||!telephone||!email||!address||!province||!district){
         errors.push({msg: 'Vui lòng nhập đầy đủ thông tin!'});
-    }else if(!validator.isEmail(email)){
-        errors.push({msg: 'Sai email, vui lòng nhập lại!'});
+    }
+    else 
+    {
+        if(!validator.isEmail(email))
+            errors.push({msg: 'Sai email, vui lòng nhập lại!'});
+        
+        if(!validator.isNumeric(telephone) || telephone.length>11 || telephone.length<1)
+            errors.push({msg: 'Số điện thoại chưa đúng!'});
     }
 
     if(errors.length > 0){
