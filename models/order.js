@@ -23,7 +23,8 @@ let Order = new Schema({
     createOn: {type: String},
     items: [Item],
     totalQuantity: {type: String},
-    totalPrice: {type: String}
+    totalPrice: {type: String},
+    status: {type:Number,default:0}
 });
 
 

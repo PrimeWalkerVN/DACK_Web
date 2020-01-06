@@ -4,10 +4,10 @@
 		<div class="banner_inner d-flex align-items-center">
 			<div class="container">
 				<div class="banner_content text-center">
-					<h2>Xác nhận đơn đặt hàng</h2>
+					<h2>{{title}}</h2>
 					<div class="page_link">
 						<a href="/index">Trang chủ</a>
-						<a href="/confirmation">Xác nhận đơn</a>
+						<a href="/confirmation">{{title}}</a>
 					</div>
 				</div>
 			</div>
@@ -107,7 +107,7 @@
 							{{#each order.items}}
 							<tr>
 								<td>
-									<p>{{this.title}}</p>
+									<a href = "/single-product/{{this._id}}">{{this.title}}</a>
 								</td>
 								<td>
 									<h5>x {{this.quantity}}</h5>
@@ -125,7 +125,7 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>{{order.totalPrice}} VND</p>
+									<h4 class="text-danger" style="font-size:20px">{{order.totalPrice}} VND</h4>
 								</td>
 							</tr>
 						</tbody>

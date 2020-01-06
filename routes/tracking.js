@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let trackingTask = require('../controllers/trackingTask');
 
-/* GET home page. */
-router.get('/', function(req, res,next) {
-  res.render('tracking');
-});
+/* GET tracking page. */
+router.get('/',trackingTask.isLoggedIn,trackingTask.loadOrdersOfUsers);
 
+/* GET detail order */
+router.get('/detail-order/:id',trackingTask.loadDetailOrder);
 
 module.exports = router;

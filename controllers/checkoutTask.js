@@ -59,13 +59,14 @@ exports.createOrder = async function(req,res,next){
             items: items,
             createOn: new Date().toLocaleString(),
             totalPrice: cartOld.totalPrice,
-            totalQuantity: cartOld.totalQuantity
+            totalQuantity: cartOld.totalQuantity,
+            status:1
         })
          await newOrder.save(function(err,result) {
              if(err) return res.status(500).json({message:err.message})
              else {
                 req.session.cart = {};
-                res.render('confirmation',{order:newOrder,hasSuccess:true});
+                res.render('confirmation',{order:newOrder,hasSuccess:true,title:'Xác nhận đơn hàng'});
              }
         });
     }

@@ -10,7 +10,6 @@ let categoryRouter = require('./routes/category');
 let singleProductRouter = require('./routes/single-product');
 let cartRouter = require('./routes/shopping-cart');
 let checkoutRouter = require('./routes/checkout');
-let confirmationRouter = require('./routes/confirmation');
 let trackingRouter = require('./routes/tracking');
 let mongoose = require('mongoose');
 require('dotenv').config();
@@ -77,7 +76,6 @@ app.use('/category', categoryRouter);
 app.use('/single-product',singleProductRouter);
 app.use('/checkout',checkoutRouter);
 app.use('/cart',cartRouter);
-app.use('/confirmation',confirmationRouter);
 app.use('/tracking',trackingRouter);
 
 
