@@ -17,6 +17,7 @@ router.post('/profile/password', userTask.isLoggedIn,userTask.forgotPasswordUser
 //Logout
 router.get('/logout', (req, res) => {
     req.logout();
+    req.session.cart ={};
     res.redirect('/users/login');
 });
 router.use('/', userTask.notLoggedIn, function (req, res, next) { next(); });
