@@ -27,12 +27,13 @@ exports.loadSingleProduct = function (req, res, next) {
           } else {
             commentList = [];
           }
+          res.render('single-product', { product: doc, comments: commentList, relatedProducts: body.result });
         })
 
         //await console.log(commentList);
 
 
-        await res.render('single-product', { product: doc, comments: commentList, relatedProducts: body.result });
+        //await res.render('single-product', { product: doc, comments: commentList, relatedProducts: body.result });
       }
     });
   });
