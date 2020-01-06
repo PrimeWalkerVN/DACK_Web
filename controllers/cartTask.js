@@ -1,6 +1,25 @@
 let Product = require('../models/product');
 let Cart = require('../models/cart');
+let CartUser = require('../models/cartUser');
 
+exports.loadUserCart = function(req, res,next){
+
+    CartUser.findOne({_id:"5de392b192120400249a471d"},function(err,data){
+        if(err) console.log(err.message);
+        let items = data.cart.items;
+       
+        let newCart = new Cart(req.session.cart ? req.session.cart:{});
+        console.log(newCart);
+        for(let id in items){
+            console.log(items[id]);
+            newCart.addMultiple(items[id].item,id,items[id].quantity);
+            
+        }
+        console.log(newCart);
+    });
+    let cart = new Cart(req.session.cart);
+    res.render('cart',{products: cart.generateArray(),totalPrice: cart.totalPrice});
+};
 
 exports.loadCart = function(req, res,next) {
     if (!req.session.cart){

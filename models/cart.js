@@ -14,6 +14,12 @@ module.exports = function Cart(oldCart){
         this.totalPrice += storedItem.item.price;
     };
 
+    this.addMultiple = function(item, id,count){
+        for(let i =0;i<count;i++){
+            this.add(item,id);
+        }
+    };
+
     this.removeItem = function(id) {
         this.items[id].quantity--;
         this.items[id].price -= this.items[id].item.price;
