@@ -1,4 +1,5 @@
 let Cart = require('../models/cart');
+let CartUser = require('../models/cartUser');
 let {Order} = require('../models/order');
 let {Item} = require('../models/order');
 let validator = require('validator');
@@ -72,6 +73,9 @@ exports.createOrder = async function(req,res,next){
              if(err) return res.status(500).json({message:err.message})
              else {
                 req.session.cart = {};
+                CartUser.findOneAndDelete({_id:req.user._id},function(err){
+                    if(err) return res.redirect('/');
+                });
                 res.render('confirmation',{order:newOrder,hasSuccess:true,title:'Xác nhận đơn hàng'});
              }
         });

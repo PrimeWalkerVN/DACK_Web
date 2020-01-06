@@ -6,6 +6,7 @@ let { comment } = require('../models/productComment');
 
 
 exports.loadSingleProduct = function (req, res, next) {
+  req.session.redirectTo = req.originalUrl; 
   request('https://still-plateau-02404.herokuapp.com/relatedProducts', { json: true }, async (err, rspd, body) => {
     if (err) { return console.log(err); }
     console.log(body);
@@ -38,6 +39,27 @@ exports.loadSingleProduct = function (req, res, next) {
     });
   });
 }
+
+exports.commentProduct = (req, res) =>{
+  let timenow = new Date().toLocaleString();
+  console.log(timenow);
+  const newComment = new comment({
+      userName: req.user.username,
+      name: req.user.name,
+      time: timenow,
+      content: req.body.content
+  });
+  
+  productComment.findOneAndUpdate({ productId: req.params.id }, {$push: {comments: newComment}}, {upsert:true}, function(err){
+      if(err){
+          console.log(err);
+
+      }else{
+          console.log("done");
+          res.redirect('/single-product/'+req.params.id);
+      }
+  });
+};
 
 exports.loadHomePage = async function (req, res, next) {
   Product.find(function (err, docs) {
@@ -78,4 +100,11 @@ exports.loadSearchResult = function (req, res, next) {
       res.render('search-result', { aa: ret });
     }
   });
+}
+
+exports.isLoggedIn = function(req, res, next) {
+  if (req.isAuthenticated()) {
+      return next();
+  }
+  res.redirect('/users/login');
 }

@@ -7,7 +7,6 @@ var crypto = require("crypto");
 const async = require("async");
 let urlVerify = 'https://dackfashiop.herokuapp.com/users/verify';
 const log = console.log;
-
 const nodemailer = require('nodemailer');
 const config = require('../config/mailer');
 
@@ -322,12 +321,12 @@ exports.postSignIn = (req, res, next) => {
         });
     }else{
     passport.authenticate('local', {
-        successRedirect: req.session.redirectTo || '/',
+        successRedirect: '/cart/add-to-session-cart',
         failureRedirect: 'login',
         successFlash: true,
         failureFlash: true
     })(req, res, next);
-    delete req.session.redirectTo;
+    
 }
 };
 
@@ -361,7 +360,6 @@ exports.forgotPasswordUser =  (req, res) => {
     console.log(req.body.oldpassword);
     // console(req.user.username);
     User.findById(req.user._id, function (err, user) {
-        console.log("abc");
         if (err) {
             console.log(err);
         } else {
