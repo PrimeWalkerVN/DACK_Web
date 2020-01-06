@@ -14,7 +14,64 @@
 	</div>
 </section>
 <!--================End Home Banner Area =================-->
+<script>
+	function checkEmail(){
+        let content = document.getElementById('email2').value;
+		let res = document.getElementById("alert-email");
+		console.log(content);
 
+		let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+		if (re.test(content))
+		{
+			res.style.display = "none";
+			document.getElementById("submitbtn-info").disabled = false;
+			return (true);
+		}else{
+			res.style.display = "block";
+			res.innerHTML = "Email không hợp lệ";
+			document.getElementById("submitbtn-info").disabled = true;
+			return (false);
+		}
+    }
+
+	function checkPasswordMatch(){
+		let pw1 = document.getElementById("newpassword1").value;
+		let pw2 = document.getElementById("newpassword2").value;
+		let res = document.getElementById("alert-password");
+		console.log(pw1);
+
+		if(pw1 == pw2){
+			res.style.display = "none";
+			
+			document.getElementById("submitbtn-password").disabled = false;
+		}else{
+			res.style.display = "block";
+			res.innerHTML = "Mật khẩu không khớp";
+			document.getElementById("submitbtn-password").disabled = true;
+			return (false);
+		}
+
+		
+	}
+
+	
+	function checkCanPost() {
+		let pw = document.getElementById("oldpassword");
+		let res = document.getElementById("alert-password");
+		if(pw.value.length > 6){
+			res.style.display = "none";
+			console.log("123123");
+			document.getElementById("submitbtn-password").disabled = false;
+		}else{
+			res.style.display = "block";
+			res.innerHTML = "Mật khẩu không hợp lệ";
+			document.getElementById("submitbtn-password").disabled = true;
+		}
+	}
+
+
+</script>
 <!--================Checkout Area =================-->
 <section class="checkout_area section_gap">
 	<div class="container">
@@ -26,13 +83,13 @@
 					<form action="profile/info" method="post" novalidate="novalidate">
 						<div class="form-group profile-form">
 							<label for="name">Họ tên</label>
-							<input type="text" class="form-control" name="name2"
+							<input type="text" class="form-control" name="name2" 
 								aria-describedby="emailHelp" placeholder="{{user.name}}">
 						</div>
 
 						<div class="form-group profile-form">
 							<label for="email">Địa chỉ email</label>
-							<input type="email" class="form-control" name="email2"
+							<input type="email" class="form-control" name="email2" onblur="checkEmail()" id="email2"
 								aria-describedby="emailHelp" placeholder="{{user.email}}">
 						</div>
 						<div class="form-group">
@@ -40,7 +97,10 @@
 							<input type="text" class="form-control" name="address2"
 								placeholder="{{user.address}}">
 						</div>
-						<button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
+						<div style ="color: red; margin-bottom: 20px">
+							<span id="alert-email"></span>
+						</div>
+						<button type="submit" id="submitbtn-info" class="btn btn-primary">Cập nhật thông tin</button>
 					</form>
 				</div>
 			</div>
@@ -55,20 +115,23 @@
 					<form action="profile/password" method="post" novalidate="novalidate">
 						<div class="form-group profile-form">
 							<label for="opw">Mật khẩu cũ</label>
-							<input type="password" class="form-control" id="oldpassword" name="oldpassword"
+							<input type="password" class="form-control" id="oldpassword" name="oldpassword" onkeyup="checkCanPost()"
 								aria-describedby="emailHelp" placeholder="Mật khẩu cũ">
 						</div>
 						<div class="form-group">
 							<label for="npw">Mật khẩu mới</label>
-							<input type="password" class="form-control" id="newpassword1" name="newpassword1"
+							<input type="password" class="form-control" id="newpassword1" name="newpassword1" onkeyup="checkPasswordMatch()"
 								placeholder="Mật khẩu mới">
 						</div>
 						<div class="form-group">
 							<label for="cfpw">Nhập lại khẩu mới</label>
-							<input type="password" class="form-control" id="newpassword2" name="newpassword2"
+							<input type="password" class="form-control" id="newpassword2" name="newpassword2" onkeyup="checkPasswordMatch()"
 								placeholder="Nhập lại khẩu mới">
 						</div>
-						<button type="submit" class="btn btn-primary btn-comfirm-profile">Thay đổi mật khẩu</button>
+						<div style ="color: red; margin-bottom: 20px">
+							<span id="alert-password"></span>
+						</div>
+						<button type="submit" id="submitbtn-password" disabled = "disabled" class="btn btn-primary btn-comfirm-profile">Thay đổi mật khẩu</button>
 					</form>
 				</div>
 			</div>
