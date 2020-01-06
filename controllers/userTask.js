@@ -74,7 +74,8 @@ exports.postSignUp= (req, res) => {
                         username,
                         name,
                         email,
-                        password
+                        password,
+                        status: "Hoạt động"
                     });
 
                     //Hash password
