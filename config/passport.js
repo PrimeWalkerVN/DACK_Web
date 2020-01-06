@@ -12,6 +12,10 @@ module.exports = function(passport){
                     if(!user){
                         return done(null, false, { message: 'Tài khoản chưa được đăng ký!'});
                     }
+                    console.log(user.status);
+                    if(user.status == "Khóa"){
+                        return done(null, false, { message:'Tài khoản của bạn đã bị khoá!'});
+                    }
                     // match password
                     bcrypt.compare(password, user.password, (err, isMatch) => {
                         if(isMatch){

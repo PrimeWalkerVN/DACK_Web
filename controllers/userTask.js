@@ -74,7 +74,8 @@ exports.postSignUp= (req, res) => {
                         username,
                         name,
                         email,
-                        password
+                        password,
+                        status: "Hoạt động"
                     });
 
                     //Hash password
@@ -343,11 +344,7 @@ exports.loadProfile = (req, res) => {
 
 //update profile 
 exports.updateProfile = function (req, res) {
-
-    // User.findOneAndUpdate({
-    //     username: req.user.username
-    // },{name: req.body.name2, email: req.body.email2, address: req.body.address2})
-
+    
     User.findOneAndUpdate({ username: req.user.username },
         { $set: { name: req.body.name2, email: req.body.email2, address: req.body.address2 } },
         { new: true },
@@ -368,17 +365,12 @@ exports.forgotPasswordUser =  (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(user.password);
-            console.log(req.body.oldpassword);
-
             bcrypt.compare(req.body.oldpassword, user.password, function (err, isMatch) {
                 if (err) {
                     let errors = [];
                     res.redirect('/users/profile');
                 } else {
-                    console.log("check match");
                     if (isMatch) {
-                        console.log("check match success");
                         if (req.body.newpassword1 === req.body.newpassword2) {
                             bcrypt.genSalt(10, (err, salt) =>
                                 bcrypt.hash(req.body.newpassword1, salt, (err, hash) => {
