@@ -19,15 +19,25 @@ exports.addToSessionCart = function(req, res,next){
     let newCart = new Cart(req.session.cart ? req.session.cart:{});
     CartUser.findOne({_id:req.user._id},function(err,data){
         if(err) res.redirect('/');
-        if(!data) return;
-        let items = data.cart.items;
-        for(let id in items){
-            newCart.addMultiple(items[id].item,id,items[id].quantity);
+        if(data == null || data ==[] || data == undefined || data=={} ) 
+        {
+            
+            res.redirect(req.session.redirectTo || '/');
+            delete req.session.redirectTo;
+            return next();
         }
-        req.session.cart = newCart;
-        console.log(req.session.cart);
-        res.redirect(req.session.redirectTo || '/');
-        delete req.session.redirectTo;
+        else {
+            let items = data.cart.items;
+            for(let id in items){
+            newCart.addMultiple(items[id].item,id,items[id].quantity);
+            }
+            req.session.cart = newCart;
+            console.log(req.session.cart);
+            saveCartToDB(req,res);
+            res.redirect(req.session.redirectTo || '/');
+            delete req.session.redirectTo;
+            return next();
+        }
         });
 };
 
