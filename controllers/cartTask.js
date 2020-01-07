@@ -60,7 +60,7 @@ exports.homePageAddToCart = function(req,res,next){
         req.session.cart = cart;
 
         saveCartToDB(req,res);
-        res.redirect('/');
+        res.redirect(req.session.redirectTo);
     });
 };
 

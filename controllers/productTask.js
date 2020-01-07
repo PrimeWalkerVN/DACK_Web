@@ -64,6 +64,7 @@ exports.commentProduct = (req, res) =>{
 };
 
 exports.loadHomePage = async function (req, res, next) {
+  req.session.redirectTo = req.originalUrl; 
   Product.find(function (err, docs) {
     if (err) {
       console.log("Render product error!");
