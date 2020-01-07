@@ -15,9 +15,9 @@ function saveCartToDB(req,res){
     }
 };
 
-exports.addToSessionCart = function(req, res,next){
+exports.addToSessionCart = async function(req, res,next){
     let newCart = new Cart(req.session.cart ? req.session.cart:{});
-    CartUser.findOne({_id:req.user._id},function(err,data){
+    await CartUser.findOne({_id:req.user._id}, function(err,data){
         if(err) res.redirect('/');
         if(data == null || data ==[] || data == undefined || data=={} ) 
         {
