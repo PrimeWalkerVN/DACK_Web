@@ -1,6 +1,6 @@
 (function(global){
   let dc = {};
-  let nItems = 5;
+  let nItems = 8;
   let nLoaded = 0;
   let nTurn = 0;
   let sortType = "normal";
