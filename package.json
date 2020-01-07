@@ -1,7 +1,9 @@
 {
   "name": "user",
-  "version": "10.15.2",
   "private": true,
+  "engine": {
+    "node" : "10.15.2"
+  },
   "scripts": {
     "start": "nodemon ./bin/www"
   },
