@@ -11,6 +11,8 @@ exports.loadSingleProduct = function (req, res, next) {
     if (err) { return console.log(err); }
     console.log(body);
 
+    await Product.findByIdAndUpdate({_id:req.params.id},{$inc:{"seen": 1}});
+
     await
     Product.findOne({ "_id": mobgodb.ObjectID(req.params.id) }, async function (err, doc) {
       if (err) {

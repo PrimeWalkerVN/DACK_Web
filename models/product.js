@@ -7,6 +7,8 @@ let schema = new Schema({
     brand: {type: String, required: true},
     color: {type: String, required: true},
     imagePath: {type: String, required: true},
+    sold: {type: Number, defaultValue:0},
+    seen: {type: Number, defaultValue:0}
 });
 
 let products = mongoose.model('Product',schema, 'products');

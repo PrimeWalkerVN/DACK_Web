@@ -54,6 +54,10 @@
 							<a href="#">
 								<span>Tình trạng</span> : Sẵn có</a>
 						</li>
+						<li>
+							<a href="#">
+								<span>Lượt xem</span> : {{product.seen}}</a>
+						</li>
 					</ul>
 					<p>Thiết kế thời trang, đơn giản không kém phần hiện đại.
 						Kiểu dáng gọn nhẹ, năng động.
@@ -264,12 +268,7 @@
 					</script>
 				</div>
 			</div>
-		</div>
-	</div>
-</section>
-<!--================End Product Description Area =================-->
-
-<section id="related-products-section">
+		</div><section id="related-products-section">
 	<div class="row">
 		{{#each relatedProducts}}
 		<div class="col col1">
@@ -296,3 +295,8 @@
 		{{/each}}
 	</div>
 </section>
+	</div>
+
+</section>
+<!--================End Product Description Area =================-->
+

@@ -2,6 +2,7 @@ let Cart = require('../models/cart');
 let CartUser = require('../models/cartUser');
 let {Order} = require('../models/order');
 let {Item} = require('../models/order');
+let Product = require('../models/product');
 let validator = require('validator');
 
 exports.loadCart = function(req, res,next) {
@@ -51,7 +52,13 @@ exports.createOrder = async function(req,res,next){
                 typeProduct : cartOld.items[id].item.typeProduct,
                 quantity : cartOld.items[id].quantity
             });
+
+            Product.findByIdAndUpdate({_id:id},{$inc:{"sold": cartOld.items[id].quantity}},function(err,doc){
+                if (err) console.log("tang sold that bai");
+                else console.log("tang sold thanh cong");
+            });
             items.push(item);
+
         }
     
         let newOrder = new Order({
