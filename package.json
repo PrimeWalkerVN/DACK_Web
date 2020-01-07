@@ -1,6 +1,6 @@
 {
   "name": "user",
-  "version": "0.0.0",
+  "version": "10.15.2",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
