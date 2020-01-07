@@ -80,22 +80,38 @@
 				<div class="col-lg-7 profile-form">
 					<h3>Thay đổi thông tin</h3>
 					<br>
+					{{#if hasErrorsProfile}}
+            				<div class="alert alert-danger login_form">
+                				{{#each errorMessagesProfile }}
+                    				<p>{{this}}</p>
+               					{{/each}}
+            				</div>
+						{{else}}
+							{{#if hasSuccessProfile}}
+							<div class="alert alert-success login_form">
+								{{#each successMessagesProfile }}
+                    				<p>{{this}}</p>
+               					{{/each}}		
+                    				
+            				</div>
+							{{/if}}
+       				{{/if}}
 					<form action="profile/info" method="post" novalidate="novalidate">
 						<div class="form-group profile-form">
 							<label for="name">Họ tên</label>
 							<input type="text" class="form-control" name="name2" 
-								aria-describedby="emailHelp" placeholder="{{user.name}}">
+								aria-describedby="emailHelp" value="{{user.name}}">
 						</div>
 
 						<div class="form-group profile-form">
 							<label for="email">Địa chỉ email</label>
 							<input type="email" class="form-control" name="email2" onblur="checkEmail()" id="email2"
-								aria-describedby="emailHelp" placeholder="{{user.email}}">
+								aria-describedby="emailHelp" value="{{user.email}}">
 						</div>
 						<div class="form-group">
 							<label for="address">Địa chỉ</label>
 							<input type="text" class="form-control" name="address2"
-								placeholder="{{user.address}}">
+								value="{{user.address}}">
 						</div>
 						<div style ="color: red; margin-bottom: 20px">
 							<span id="alert-email"></span>
@@ -112,6 +128,22 @@
 				<div class="col-lg-7 profile-form">
 					<h3>Thay đổi mật khẩu</h3>
 					<br>
+					{{#if hasErrorPassword}}
+            				<div class="alert alert-danger login_form">
+                				{{#each errorMessagesPassword }}
+                    				<p>{{this}}</p>
+               					{{/each}}
+            				</div>
+						{{else}}
+							{{#if hasSuccessPassword}}
+							<div class="alert alert-success login_form">
+								{{#each successMessagesPassword }}
+                    				<p>{{this}}</p>
+               					{{/each}}		
+                    				
+            				</div>
+							{{/if}}
+       				{{/if}}
 					<form action="profile/password" method="post" novalidate="novalidate">
 						<div class="form-group profile-form">
 							<label for="opw">Mật khẩu cũ</label>

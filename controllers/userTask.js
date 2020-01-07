@@ -336,8 +336,13 @@ exports.postSignIn = (req, res, next) => {
 //load profile
 exports.loadProfile = (req, res) => {
     User.findById(req.user._id, function (err, user) {
-        console.log(user);
-        res.render('profile', user);
+        let errorMsgProfile = req.flash('error_msg_profile');
+        let successMsgProfile = req.flash('success_msg_profile');
+        let errorMsgPassword = req.flash('error_msg_password');
+        let successMsgPassword = req.flash('success_msg_password');
+        res.render('profile', {user:user,hasSuccessProfile: successMsgProfile.length > 0,hasErrorProfile: errorMsgProfile.length > 0,
+        errorMessagesProfile: errorMsgProfile,successMessagesProfile:successMsgProfile,hasSuccessProfile: successMsgProfile.length > 0,
+        hasErrorPassword: errorMsgPassword.length > 0, errorMessagesPassword: errorMsgPassword,successMessagesPassword:successMsgPassword});
     })
 };
 
@@ -348,8 +353,18 @@ exports.updateProfile = function (req, res) {
         { $set: { name: req.body.name2, email: req.body.email2, address: req.body.address2 } },
         { new: true },
         (err, data) => {
-            if (err) console.log("Error when update info"); 
-            res.redirect('/users/profile');
+            if (err) {
+                let errors = [];
+                errors.push('Lỗi trong quá trình cập nhật, vui lòng thử lại!');
+                req.flash('error_msg_profile',errors);
+                res.redirect('/users/profile');
+            }else {
+                let success = [];
+                success.push('Cập nhật thành công');
+                req.flash('success_msg_profile',success);
+                res.redirect('/users/profile');
+            }
+            
         }
     );
 };
@@ -369,8 +384,7 @@ exports.forgotPasswordUser =  (req, res) => {
                     res.redirect('/users/profile');
                 } else {
                     if (isMatch) {
-                        if (req.body.newpassword1 === req.body.newpassword2) {
-                            bcrypt.genSalt(10, (err, salt) =>
+                        bcrypt.genSalt(10, (err, salt) =>
                                 bcrypt.hash(req.body.newpassword1, salt, (err, hash) => {
                                     if (err) throw err;
                                     let pw = hash;
@@ -378,20 +392,25 @@ exports.forgotPasswordUser =  (req, res) => {
                                     User.findOneAndUpdate({ _id: req.user._id }, { $set: { password: hash } },
                                         { new: true },
                                         (err, data) => {
-                                            if (err) console.log("Error when update info");
-                                            res.redirect('/users/profile');
+                                            if (err) {
+                                                let errors = [];
+                                                errors.push('Lỗi trong quá trình cập nhật, vui lòng thử lại!');
+                                                req.flash('error_msg_password',errors);
+                                                res.redirect('/users/profile');
+                                            }else {
+                                                let success = [];
+                                                success.push('Cập nhật mật khẩu thành công');
+                                                req.flash('success_msg_password',success);
+                                                res.redirect('/users/profile');
+                                            }
                                         }
                                     )
-                                }));
-                        } else {
-                            let errors = [];
-                            errors.push('Mật khẩu không khớp!');
-                            req.flash('error', errors);
-                            return res.redirect(url);
-                        }
+                        }));
                     }
                     else{
-                        console.log("Password khong chinh xac");
+                        let errors = [];
+                        errors.push('Mật khẩu cũ của bạn không khớp, vui lòng nhập lại!');
+                        req.flash('error_msg_password',errors);
                         res.redirect('/users/profile');
                     }
                 }
