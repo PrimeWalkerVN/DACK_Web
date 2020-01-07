@@ -2,7 +2,8 @@
 let Product = require('../models/product');
 
 let mongoose = require('mongoose');
-let baseUrl = "mongodb+srv://letrungtiennbk9:Trungtienle9@cluster0-hjpbg.mongodb.net/shopping?retryWrites=true&w=majority"
+let baseUrl = "mongodb+srv://letrungtiennbk9:Trungtienle9@cluster0-hjpbg.mongodb.net/shopping?retryWrites=true&w=majority";
+let API_URI = "https://still-plateau-02404.herokuapp.com"
 let mongoDB = baseUrl;
 let done = 0;
 
@@ -15,7 +16,7 @@ let aokhoac = [
         typeProduct: "Áo khoác",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/ao-khoac/ao-khoac-nam-1.png"
+        imagePath:  API_URI +  "/img/product/ao-khoac/ao-khoac-nam-1.png"
     }),
    
     new Product ({
@@ -24,7 +25,7 @@ let aokhoac = [
         typeProduct: "Áo khoác",
         brand: "Pull&Bear",
         color: "Đen",
-        imagePath: "/img/product/ao-khoac/ao-khoac-nam-2.png"
+        imagePath:  API_URI +  "/img/product/ao-khoac/ao-khoac-nam-2.png"
     }),
    
     new Product ({
@@ -33,7 +34,7 @@ let aokhoac = [
         typeProduct: "Áo khoác",
         brand: "H&M",
         color: "Trắng",
-        imagePath: "/img/product/ao-khoac/ao-khoac-nam-3.png"
+        imagePath:  API_URI +  "/img/product/ao-khoac/ao-khoac-nam-3.png"
     }),
    
     new Product ({
@@ -42,7 +43,7 @@ let aokhoac = [
         typeProduct: "Áo khoác",
         brand: "Mango",
         color: "Đen",
-        imagePath: "/img/product/ao-khoac/ao-khoac-nam-4.png"
+        imagePath:  API_URI +  "/img/product/ao-khoac/ao-khoac-nam-4.png"
     })
    
 ];  
@@ -64,7 +65,7 @@ let quantay = [
         typeProduct: "Quần tây",
         brand: "Routine",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-tay-1.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-tay-1.jpg"
     }),
     new Product ({
         title: 'Quần Tây Âu Nam Titishop QTN64 - Đen',
@@ -72,7 +73,7 @@ let quantay = [
         typeProduct: "Quần tây",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-tay-2.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-tay-2.jpg"
     }),
     new Product ({
         title: 'Quần tây nam ống suông công sở',
@@ -80,7 +81,7 @@ let quantay = [
         typeProduct: "Quần tây",
         brand: "Pull&Bear",
         color: "Xanh da trời",
-        imagePath: "/img/product/quan/quan-tay-3.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-tay-3.jpg"
     }),
     new Product ({
         title: 'Quần Tây Âu Màu Trơn Cho Nam',
@@ -88,7 +89,7 @@ let quantay = [
         typeProduct: "Quần tây",
         brand: "Mango",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-tay-4.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-tay-4.jpg"
     })
     
 ];  
@@ -110,7 +111,7 @@ let quanthethao = [
         typeProduct: "Quần thể thao",
         brand: "Mango",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-the-thao-1.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-the-thao-1.jpg"
     }),
     new Product ({
         title: 'Quần short thể thao nam Gymlink G505',
@@ -118,7 +119,7 @@ let quanthethao = [
         typeProduct: "Quần thể thao",
         brand: "H&M",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-the-thao-2.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-the-thao-2.jpg"
     }),
     new Product ({
         title: 'Quần Short thể thao nữ 2 lớp viền màu',
@@ -126,7 +127,7 @@ let quanthethao = [
         typeProduct: "Quần thể thao",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-the-thao-3.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-the-thao-3.jpg"
     }),
     new Product ({
         title: 'Quần short thể thao nữ Now Day QN99 Sportslink',
@@ -134,7 +135,7 @@ let quanthethao = [
         typeProduct: "Quần thể thao",
         brand: "Routine",
         color: "Trắng",
-        imagePath: "/img/product/quan/quan-the-thao-4.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-the-thao-4.jpg"
     })
     
 ];  
@@ -156,7 +157,7 @@ let quanjogger = [
         typeProduct: "Quần jogger",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-jogger-1.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-jogger-1.jpg"
     }),
     new Product ({
         title: 'Quần Jogger Kaki Nam Dáng Thể Thao Chất Lượng Cao',
@@ -164,7 +165,7 @@ let quanjogger = [
         typeProduct: "Quần jogger",
         brand: "H&M",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-jogger-2.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-jogger-2.jpg"
     }),
     new Product ({
         title: 'Quần jogger kaki nam túi hộp New arrival 04',
@@ -172,7 +173,7 @@ let quanjogger = [
         typeProduct: "Quần jogger",
         brand: "Mango",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-jogger-3.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-jogger-3.jpg"
     }),
     new Product ({
         title: 'Quần Jogger Nam Nữ Chất Nỉ Cao Cấp',
@@ -180,7 +181,7 @@ let quanjogger = [
         typeProduct: "Quần jogger",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/quan-jogger-4.jpg"
+        imagePath:  API_URI +  "/img/product/quan/quan-jogger-4.jpg"
     })
 ];  
 
@@ -202,7 +203,7 @@ let vay = [
         typeProduct: "Váy",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/vay-1.jpg"
+        imagePath:  API_URI +  "/img/product/quan/vay-1.jpg"
     }),
     
     new Product ({
@@ -211,7 +212,7 @@ let vay = [
         typeProduct: "Váy",
         brand: "Mango",
         color: "Đen",
-        imagePath: "/img/product/quan/vay-2.jpg"
+        imagePath:  API_URI +  "/img/product/quan/vay-2.jpg"
     }),
     
     new Product ({
@@ -220,7 +221,7 @@ let vay = [
         typeProduct: "Váy",
         brand: "Routine",
         color: "Đen",
-        imagePath: "/img/product/quan/vay-3.jpg"
+        imagePath:  API_URI +  "/img/product/quan/vay-3.jpg"
     }),
 
     new Product ({
@@ -229,7 +230,7 @@ let vay = [
         typeProduct: "Váy",
         brand: "Gucci",
         color: "Đen",
-        imagePath: "/img/product/quan/vay-4.jpg"
+        imagePath:  API_URI +  "/img/product/quan/vay-4.jpg"
     }),
 
 ];  
@@ -251,7 +252,7 @@ let dam = [
         typeProduct: "Đầm",
         brand: "Gucci",
         color: "Vàng gold",
-        imagePath: "/img/product/quan/dam-1.png"
+        imagePath:  API_URI +  "/img/product/quan/dam-1.png"
     }),
     
     new Product ({
@@ -260,7 +261,7 @@ let dam = [
         typeProduct: "Đầm",
         brand: "Pull&Bear",
         color: "Hồng mạnh mẽ",
-        imagePath: "/img/product/quan/dam-2.jpg"
+        imagePath:  API_URI +  "/img/product/quan/dam-2.jpg"
     }),
     
     new Product ({ 
@@ -269,7 +270,7 @@ let dam = [
         typeProduct: "Đầm",
         brand: "Mango",
         color: "Xanh da trời",
-        imagePath: "/img/product/quan/dam-3.jpg"
+        imagePath:  API_URI +  "/img/product/quan/dam-3.jpg"
     }),
    
     new Product ({
@@ -278,7 +279,7 @@ let dam = [
         typeProduct: "Đầm",
         brand: "Gucci",
         color: "Xanh da trời",
-        imagePath: "/img/product/quan/dam-4.jpg"
+        imagePath:  API_URI +  "/img/product/quan/dam-4.jpg"
     }),
     
 ];  
@@ -301,7 +302,7 @@ let aoLen = [
         typeProduct: 'Áo len',
         brand: "Gucci",
         color: "Hồng mạnh mẽ",
-        imagePath: '/img/product/ao/ao_len/aolen1.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_len/aolen1.jpeg'
     }),
 
     new Product ({   
@@ -310,7 +311,7 @@ let aoLen = [
         typeProduct: 'Áo len',
         brand: "Pull&Bear",
         color: "Trắng",
-        imagePath: '/img/product/ao/ao_len/aolen2.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_len/aolen2.jpeg'
     }),
 
     new Product ({
@@ -319,7 +320,7 @@ let aoLen = [
         typeProduct: 'Áo len',
         brand: "Routine",
         color: "Hồng mạnh mẽ",
-        imagePath: '/img/product/ao/ao_len/aolen3.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_len/aolen3.jpeg'
     }),
    
     new Product ({
@@ -328,7 +329,7 @@ let aoLen = [
         typeProduct: 'Áo len',
         brand: "H&M",
         color: "Vàng gold",
-        imagePath: '/img/product/ao/ao_len/aolen4.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_len/aolen4.jpeg'
     }),
 ];  
 
@@ -351,7 +352,7 @@ let aoThun = [
         typeProduct: 'Áo thun',
         brand: "Mango",
         color: "Trắng",
-        imagePath: '/img/product/ao/ao_thun/aothun1.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_thun/aothun1.jpeg'
     }),
 
     new Product ({
@@ -360,7 +361,7 @@ let aoThun = [
         brand: "Pull&Bear",
         color: "Trắng",
         typeProduct: 'Áo thun',
-        imagePath: '/img/product/ao/ao_thun/aothun2.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_thun/aothun2.jpeg'
     }),
 
     new Product ({ 
@@ -369,7 +370,7 @@ let aoThun = [
         typeProduct: 'Áo thun',
         brand: "Mango",
         color: "Xanh da trời",
-        imagePath: '/img/product/ao/ao_thun/aothun3.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_thun/aothun3.jpeg'
     }),
    
     new Product ({  
@@ -378,7 +379,7 @@ let aoThun = [
         typeProduct: 'Áo thun',
         brand: "Gucci",
         color: "Vàng gold",
-        imagePath: '/img/product/ao/ao_thun/aothun4.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_thun/aothun4.jpeg'
     }),
 ];  
 
@@ -401,7 +402,7 @@ let aoLot = [
         typeProduct: 'Áo lót',
         brand: "Gucci",
         color: "Trắng",
-        imagePath: '/img/product/ao/ao_lot/aolot1.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_lot/aolot1.jpeg'
     }),
 
     new Product ({  
@@ -410,7 +411,7 @@ let aoLot = [
         typeProduct: 'Áo lót',
         brand: "Routine",
         color: "Hồng mạnh mẽ",
-        imagePath: '/img/product/ao/ao_lot/aolot2.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_lot/aolot2.jpeg'
     }),
 
     new Product ({ 
@@ -419,7 +420,7 @@ let aoLot = [
         typeProduct: 'Áo lót',
         brand: "Routine",
         color: "đen",
-        imagePath: '/img/product/ao/ao_lot/aolot3.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_lot/aolot3.jpeg'
     }),
    
     new Product ({
@@ -428,7 +429,7 @@ let aoLot = [
         typeProduct: 'Áo lót',
         brand: "Routine",
         color: "Xanh da trời",
-        imagePath: '/img/product/ao/ao_lot/aolot4.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_lot/aolot4.jpeg'
     }),
 ];  
 
@@ -451,7 +452,7 @@ let aoSoMi = [
         typeProduct: 'Áo sơ mi',
         brand: "Pull&Bear",
         color: "Trắng",
-        imagePath: '/img/product/ao/ao_so_mi/aosomi1.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_so_mi/aosomi1.jpeg'
     }),
 
     new Product ({    
@@ -460,7 +461,7 @@ let aoSoMi = [
         typeProduct: 'Áo sơ mi',
         brand: "Gucci",
         color: "Trắng",
-        imagePath: '/img/product/ao/ao_so_mi/aosomi2.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_so_mi/aosomi2.jpeg'
     }),
 
     new Product ({     
@@ -469,7 +470,7 @@ let aoSoMi = [
         typeProduct: 'Áo sơ mi',
         brand: "H&M",
         color: "Xanh da trời",
-        imagePath: '/img/product/ao/ao_so_mi/aosomi3.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_so_mi/aosomi3.jpeg'
     }),
    
     new Product ({      
@@ -478,7 +479,7 @@ let aoSoMi = [
         brand: "Routine",
         color: "Trắng",
         typeProduct: 'Áo sơ mi',
-        imagePath: '/img/product/ao/ao_so_mi/aosomi4.jpeg'
+        imagePath:  API_URI +  '/img/product/ao/ao_so_mi/aosomi4.jpeg'
     }),
 ];  
 
@@ -503,7 +504,7 @@ let giaySneaker = [
         typeProduct: 'Sneaker',
         brand: "Pull&Bear",
         color: "Vàng gold",
-        imagePath: '/img/product/giay/sneaker/sneaker1.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/sneaker/sneaker1.jpeg'
     }),
 
     new Product ({ 
@@ -512,7 +513,7 @@ let giaySneaker = [
         typeProduct: 'Sneaker',
         brand: "Gucci",
         color: "Trắng",
-        imagePath: '/img/product/giay/sneaker/sneaker2.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/sneaker/sneaker2.jpeg'
     }),
 
     new Product ({ 
@@ -521,7 +522,7 @@ let giaySneaker = [
         typeProduct: 'Sneaker',
         brand: "H&M",
         color: "Vàng gold",
-        imagePath: '/img/product/giay/sneaker/sneaker3.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/sneaker/sneaker3.jpeg'
     }),
    
     new Product ({ 
@@ -530,7 +531,7 @@ let giaySneaker = [
         typeProduct: 'Sneaker',
         brand: "Gucci",
         color: "Hồng mạnh mẽ",
-        imagePath: '/img/product/giay/sneaker/sneaker4.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/sneaker/sneaker4.jpeg'
     }),
 ];  
 
@@ -552,7 +553,7 @@ let giayCaoCo = [
         typeProduct: 'Giày cao cổ',
         brand: "H&M",
         color: "Đen",
-        imagePath: '/img/product/giay/cao_co/caoco1.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_co/caoco1.jpeg'
     }),
 
     new Product ({
@@ -561,7 +562,7 @@ let giayCaoCo = [
         typeProduct: 'Giày cao cổ',
         brand: "H&M",
         color: "Trắng",
-        imagePath: '/img/product/giay/cao_co/caoco2.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_co/caoco2.jpeg'
     }),
 
     new Product ({
@@ -570,7 +571,7 @@ let giayCaoCo = [
         typeProduct: 'Giày cao cổ',
         brand: "Mango",
         color: "Đen",
-        imagePath: '/img/product/giay/cao_co/caoco3.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_co/caoco3.jpeg'
     }),
    
     new Product ({
@@ -579,7 +580,7 @@ let giayCaoCo = [
         typeProduct: 'Giày cao cổ',
         brand: "Mango",
         color: "Vàng gold",
-        imagePath: '/img/product/giay/cao_co/caoco4.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_co/caoco4.jpeg'
     }),
 ];  
 
@@ -601,7 +602,7 @@ let giayCaoGot = [
         typeProduct: 'Giày cao gót',
         brand: "H&M",
         color: "Đen",
-        imagePath: '/img/product/giay/cao_got/caogot1.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_got/caogot1.jpeg'
     }),
 
     new Product ({
@@ -610,7 +611,7 @@ let giayCaoGot = [
         typeProduct: 'Giày cao gót',
         brand: "Pull&Bear",
         color: "Đen",
-        imagePath: '/img/product/giay/cao_got/caogot2.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_got/caogot2.jpeg'
     }),
 
     new Product ({
@@ -619,7 +620,7 @@ let giayCaoGot = [
         typeProduct: 'Giày cao gót',    
         brand: "Routine",
         color: "Trắng",
-        imagePath: '/img/product/giay/cao_got/caogot3.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_got/caogot3.jpeg'
     }),
    
     new Product ({
@@ -628,7 +629,7 @@ let giayCaoGot = [
         typeProduct: 'Giày cao gót',
         brand: "Mango",
         color: "Hồng mạnh mẽ",
-        imagePath: '/img/product/giay/cao_got/caogot4.jpeg'
+        imagePath:  API_URI +  '/img/product/giay/cao_got/caogot4.jpeg'
     }),
 ];      
 
