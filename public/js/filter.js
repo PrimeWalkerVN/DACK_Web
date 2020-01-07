@@ -21,7 +21,9 @@
   getSnippet();
 
   dc.getData = async () => {
+    console.log('aaaaaaaaaaaaaaaaa');
     let realProductsDbUrl = productsDbUrl + nTurn + "/" + sortType + queryStr;
+    console.log(realProductsDbUrl);
     realProductsDbUrl = encodeURI(realProductsDbUrl);
     let delta;
     await $.get(realProductsDbUrl, (res, status) => {
@@ -105,6 +107,9 @@
     tmpQueryStr += "&title=";
     tmpQueryStr += $('.search-txt')[0].value;
     tmpQueryStr += $('#advanced-search')[0].value;
+
+    tmpQueryStr += '&price=';
+    tmpQueryStr += $('#amount')[0].value + '';
 
     tmpQueryStr += "&color=";
     $(".color-filter input").each(function() {
