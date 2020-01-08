@@ -106,10 +106,14 @@
 
     tmpQueryStr += "&title=";
     tmpQueryStr += $('.search-txt')[0].value;
-    tmpQueryStr += $('#advanced-search')[0].value;
+    if(tmpQueryStr == '&title='){
+      tmpQueryStr += $('#advanced-search')[0].value;
+    }
 
     tmpQueryStr += '&price=';
-    tmpQueryStr += $('#amount')[0].value + '';
+    setTimeout(() => {
+      tmpQueryStr += $('#amount')[0].value + '';
+    }, 300);
 
     tmpQueryStr += "&color=";
     $(".color-filter input").each(function() {
