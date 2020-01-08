@@ -9,36 +9,47 @@ function saveCartToDB(req,res){
             cart: req.session.cart
         });
         CartUser.findOneAndDelete({_id:req.user._id},function(err){
-            if(err) return res.redirect('/');
+            if(err) 
+            {
+                console.log('xoa that bai');
+                return res.redirect('/');
+            }else
+            console.log(' xoa thanh cong');
         });
-        cartUser.save();
+        cartUser.save(function (err){
+            if(err) console.log('luu that bai');
+            else console.log('luu thanh cong');
+        });
     }
 };
 
-exports.addToSessionCart = function(req, res,next){
+exports.addToSessionCart = async function(req, res,next){
+    if(!req.user){ 
+        res.redirect('/cart/add-to-session-cart'); 
+    }
+    else {
     let newCart = new Cart(req.session.cart ? req.session.cart:{});
-    CartUser.findOne({_id:req.user._id},function(err,data){
-        if(err) res.redirect('/');
+    await CartUser.findOne({_id:req.user._id}, function(err,data){
+        if(err) {res.redirect('/');}
         if(data == null || data ==[] || data == undefined || data=={} ) 
-        {
-            
+        {  
+            saveCartToDB(req,res);
             res.redirect(req.session.redirectTo || '/');
             delete req.session.redirectTo;
-            return next();
         }
-        else {
+        else { 
             let items = data.cart.items;
             for(let id in items){
             newCart.addMultiple(items[id].item,id,items[id].quantity);
             }
             req.session.cart = newCart;
-            console.log(req.session.cart);
             saveCartToDB(req,res);
             res.redirect(req.session.redirectTo || '/');
             delete req.session.redirectTo;
-            return next();
+            
         }
         });
+    }
 };
 
 exports.loadCart = function(req, res,next) {
