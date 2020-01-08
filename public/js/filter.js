@@ -106,14 +106,10 @@
 
     tmpQueryStr += "&title=";
     tmpQueryStr += $('.search-txt')[0].value;
-    if(tmpQueryStr == '&title='){
+
+    if($('.search-txt')[0].value == ""){
       tmpQueryStr += $('#advanced-search')[0].value;
     }
-
-    tmpQueryStr += '&price=';
-    setTimeout(() => {
-      tmpQueryStr += $('#amount')[0].value + '';
-    }, 300);
 
     tmpQueryStr += "&color=";
     $(".color-filter input").each(function() {
@@ -121,6 +117,12 @@
         tmpQueryStr += $(this)[0].value + ",";
       }
     });
+
+    tmpQueryStr += '&price=';
+    setTimeout(() => {
+      tmpQueryStr += $('#amount')[0].value + '';
+    }, 300);
+
     tmpQueryStr = tmpQueryStr.substring(0, tmpQueryStr.length - 1);
     queryStr = tmpQueryStr;
 
